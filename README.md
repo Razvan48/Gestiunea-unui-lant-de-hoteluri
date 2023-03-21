@@ -1,4 +1,6 @@
-Proiectul se va ocupa cu gestiunea unui lant de hoteluri. Va exista functionalitatea necesara descrierii relatiilor dintre hoteluri, clienti, camere, sejururi, angajati, etc..
+###Descriere proiect
+
+  Proiectul se va ocupa cu gestiunea unui lant de hoteluri. Va exista functionalitatea necesara descrierii relatiilor dintre hoteluri, clienti, camere, sejururi, angajati, etc..
 
 # OOP Template
 
