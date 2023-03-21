@@ -6,6 +6,9 @@
 int main()
 {
     Hotel* h = new Hotel("Hotel", 5);
+
+    std::cout << *h << '\n';
+
     Camera c1 = Camera(1, 1);
     Camera c2 = Camera(2, 1);
     Camera c3 = Camera(3, 1);
@@ -20,7 +23,7 @@ int main()
     std::cout << c5 << '\n';
     std::cout << c2 << '\n';
 
-    std::cout << h << '\n';
+    std::cout << *h << '\n';
 
     return 0;
 }

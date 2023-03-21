@@ -1,5 +1,5 @@
-#ifndef OOP_HOTEL_H
-#define OOP_HOTEL_H
+#ifndef HOTEL_H
+#define HOTEL_H
 
 #include <vector>
 #include <string>
