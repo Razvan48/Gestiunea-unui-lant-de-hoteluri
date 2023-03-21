@@ -7,7 +7,7 @@
 #include <istream>
 #include <ostream>
 
-#include "../camera/camera.h"
+#include "camera.h"
 
 class Hotel
 {

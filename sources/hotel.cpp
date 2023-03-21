@@ -1,4 +1,4 @@
-#include "../../includes/hotel/hotel.h"
+#include "../includes/hotel.h"
 
 void Hotel::adaugaCamera(Camera& c)
 {

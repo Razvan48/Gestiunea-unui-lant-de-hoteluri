@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "includes/hotel/hotel.h"
-#include "includes/camera/camera.h"
+#include "includes/hotel.h"
+#include "includes/camera.h"
 
 int main()
 {

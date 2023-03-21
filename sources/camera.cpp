@@ -1,4 +1,4 @@
-#include "../../includes/camera/camera.h"
+#include "../includes/camera.h"
 
 std::istream& operator>>(std::istream& in, Camera& c)
 {
