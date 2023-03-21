@@ -1,3 +1,5 @@
+Proiectul se va ocupa cu gestiunea unui lant de hoteluri.
+
 # OOP Template
 
 ### Tema 0
