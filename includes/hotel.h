@@ -18,7 +18,7 @@ private:
     std::vector<Camera*> camere;
 
 public:
-    Hotel(std::string nume, int nrStele = -1) : nume(nume), nrStele(nrStele)
+    Hotel(std::string nume, int nrStele) : nume(nume), nrStele(nrStele)
     {
 
     }
@@ -30,7 +30,7 @@ public:
 
     ~Hotel()
     {
-        for (int i = 0; i < this->camere.size(); i++)
+        for (size_t i = 0; i < this->camere.size(); i++)
             delete this->camere[i];
     }
 };

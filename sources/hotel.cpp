@@ -22,7 +22,7 @@ std::ostream& operator<<(std::ostream& out, Hotel& h)
     {
         out << "si urmatoarele camere:" << '\n';
 
-        for (int i = 0; i < h.camere.size(); i++)
+        for (size_t i = 0; i < h.camere.size(); i++)
             out << *h.camere[i];
     }
 
