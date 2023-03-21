@@ -1,8 +1,8 @@
 #include "../includes/hotel.h"
 
-void Hotel::adaugaCamera(Camera& c)
+void Hotel::adaugaCamera(Camera* c)
 {
-    this->camere.push_back(&c);
+    this->camere.push_back(c);
 }
 
 std::istream& operator>>(std::istream& in, Hotel& h)

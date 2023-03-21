@@ -26,7 +26,7 @@ public:
     friend std::istream& operator>>(std::istream& in, Hotel& h);
     friend std::ostream& operator<<(std::ostream& out, Hotel& h);
 
-    void adaugaCamera(Camera& c);
+    void adaugaCamera(Camera* c);
 
     ~Hotel()
     {
