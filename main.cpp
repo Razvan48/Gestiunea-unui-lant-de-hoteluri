@@ -26,6 +26,7 @@ int main()
     std::cout << *h << '\n';
 
     delete h;
+    
 
     return 0;
 }
