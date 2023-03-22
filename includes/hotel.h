@@ -34,7 +34,7 @@ public:
 
     Camera* rezervaCamera();
     Camera* rezervaCamera(Client* c);
-    Camera* rezervaCamera(std::vector<Client*> c);
+    Camera* rezervaCamera(const std::vector<Client*>& c);
     void elibereazaCamera(const Camera* c);
 
     ~Hotel()

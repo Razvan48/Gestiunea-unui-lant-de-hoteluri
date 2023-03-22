@@ -43,7 +43,7 @@ public:
         this->client.push_back(c);
     }
 
-    void rezerva(std::vector<Client*> c)
+    void rezerva(const std::vector<Client*>& c)
     {
         this->rezervat = true;
 

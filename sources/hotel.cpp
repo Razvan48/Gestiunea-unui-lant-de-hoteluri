@@ -70,7 +70,7 @@ Camera* Hotel::rezervaCamera(Client* c)
     return nullptr;
 }
 
-Camera* Hotel::rezervaCamera(std::vector<Client*> c)
+Camera* Hotel::rezervaCamera(const std::vector<Client*>& c)
 {
     for (size_t i = 0; i < this->camera.size(); i++)
     {
