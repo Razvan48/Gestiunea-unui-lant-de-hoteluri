@@ -18,7 +18,7 @@ private:
     std::vector<Camera*> camere;
 
 public:
-    Hotel(std::string nume, int nrStele) : nume(nume), nrStele(nrStele)
+    Hotel(const std::string& nume, int nrStele) : nume(nume), nrStele(nrStele)
     {
 
     }
