@@ -24,7 +24,7 @@ public:
     }
 
     friend std::istream& operator>>(std::istream& in, Hotel& h);
-    friend std::ostream& operator<<(std::ostream& out, Hotel& h);
+    friend std::ostream& operator<<(std::ostream& out, const Hotel& h);
 
     void adaugaCamera(Camera* c);
 

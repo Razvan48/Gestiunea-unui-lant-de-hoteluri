@@ -7,7 +7,7 @@ std::istream& operator>>(std::istream& in, Camera& c)
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, Camera& c)
+std::ostream& operator<<(std::ostream& out, const Camera& c)
 {
     out << "Camera " << c.numar << ", aflata la etajul " << c.etaj << '\n';
 

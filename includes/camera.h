@@ -18,7 +18,7 @@ public:
     }
 
     friend std::istream& operator>>(std::istream& in, Camera& obj);
-    friend std::ostream& operator<<(std::ostream& out, Camera& obj);
+    friend std::ostream& operator<<(std::ostream& out, const Camera& obj);
 
     ~Camera() = default;
 };

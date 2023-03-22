@@ -12,7 +12,7 @@ std::istream& operator>>(std::istream& in, Hotel& h)
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, Hotel& h)
+std::ostream& operator<<(std::ostream& out, const Hotel& h)
 {
     out << "Hotelul " << h.nume << " are " << h.nrStele << " stele" << '\n';
 
