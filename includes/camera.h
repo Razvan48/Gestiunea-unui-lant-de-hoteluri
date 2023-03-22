@@ -10,15 +10,26 @@ private:
 
     int numar;
     int etaj;
+    bool rezervat;
 
 public:
-    Camera(int numar, int etaj) : numar(numar), etaj(etaj)
+    Camera(int numar, int etaj, bool rezervat = false) : numar(numar), etaj(etaj), rezervat(rezervat)
     {
 
     }
 
     friend std::istream& operator>>(std::istream& in, Camera& obj);
     friend std::ostream& operator<<(std::ostream& out, const Camera& obj);
+
+    bool getRezervat() const
+    {
+        return this->rezervat;
+    }
+
+    void setRezervat(bool rezervat)
+    {
+        this->rezervat = rezervat;
+    }
 
     ~Camera() = default;
 };

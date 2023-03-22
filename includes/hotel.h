@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+#include <iostream>
 #include <istream>
 #include <ostream>
 
@@ -15,7 +16,7 @@ private:
 
     std::string nume;
     int nrStele;
-    std::vector<Camera*> camere;
+    std::vector<Camera*> camera;
 
 public:
     Hotel(const std::string& nume, int nrStele) : nume(nume), nrStele(nrStele)
@@ -28,10 +29,15 @@ public:
 
     void adaugaCamera(Camera* c);
 
+    friend void operator+=(Hotel& h, Camera* c);
+
+    Camera* rezervaCamera();
+    void elibereazaCamera(const Camera* c);
+
     ~Hotel()
     {
-        for (size_t i = 0; i < this->camere.size(); i++)
-            delete this->camere[i];
+        for (size_t i = 0; i < this->camera.size(); i++)
+            delete this->camera[i];
     }
 };
 

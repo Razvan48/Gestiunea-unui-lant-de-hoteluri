@@ -25,8 +25,19 @@ int main()
 
     std::cout << *h << '\n';
 
+    h->rezervaCamera();
+    h->rezervaCamera();
+    h->rezervaCamera();
+    h->rezervaCamera();
+    h->rezervaCamera();
+    h->rezervaCamera();
+
+    h->elibereazaCamera(c1);
+
+    h->rezervaCamera();
+    h->rezervaCamera();
+
     delete h;
-    
 
     return 0;
 }
