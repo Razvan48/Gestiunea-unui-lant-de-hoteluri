@@ -80,7 +80,7 @@ endfunction()
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} main.cpp includes/hotel.h includes/camera.h sources/hotel.cpp sources/camera.cpp)
+add_executable(${PROJECT_NAME} main.cpp includes/hotel.h includes/camera.h sources/hotel.cpp sources/camera.cpp sources/client.cpp includes/client.h)
 
 ###############################################################################
 

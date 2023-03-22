@@ -9,6 +9,7 @@
 #include <ostream>
 
 #include "camera.h"
+#include "client.h"
 
 class Hotel
 {
@@ -32,12 +33,15 @@ public:
     friend void operator+=(Hotel& h, Camera* c);
 
     Camera* rezervaCamera();
+    Camera* rezervaCamera(Client* c);
+    Camera* rezervaCamera(std::vector<Client*> c);
     void elibereazaCamera(const Camera* c);
 
     ~Hotel()
     {
         for (size_t i = 0; i < this->camera.size(); i++)
             delete this->camera[i];
+        this->camera.clear();
     }
 };
 

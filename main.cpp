@@ -39,5 +39,7 @@ int main()
 
     delete h;
 
+    //Nu dam delete manual la camerele atasate la hotel, deoarece vor fi sterse de destructorul hotelului.
+
     return 0;
 }

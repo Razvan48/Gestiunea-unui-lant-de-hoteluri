@@ -40,7 +40,43 @@ Camera* Hotel::rezervaCamera()
     {
         if (!this->camera[i]->getRezervat())
         {
-            this->camera[i]->setRezervat(true);
+            this->camera[i]->rezerva();
+
+            std::cout << *this->camera[i] << "a fost rezervata!" << '\n';
+
+            return this->camera[i];
+        }
+    }
+
+    std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
+    return nullptr;
+}
+
+Camera* Hotel::rezervaCamera(Client* c)
+{
+    for (size_t i = 0; i < this->camera.size(); i++)
+    {
+        if (!this->camera[i]->getRezervat())
+        {
+            this->camera[i]->rezerva(c);
+
+            std::cout << *this->camera[i] << "a fost rezervata!" << '\n';
+
+            return this->camera[i];
+        }
+    }
+
+    std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
+    return nullptr;
+}
+
+Camera* Hotel::rezervaCamera(std::vector<Client*> c)
+{
+    for (size_t i = 0; i < this->camera.size(); i++)
+    {
+        if (!this->camera[i]->getRezervat())
+        {
+            this->camera[i]->rezerva(c);
 
             std::cout << *this->camera[i] << "a fost rezervata!" << '\n';
 
@@ -58,7 +94,7 @@ void Hotel::elibereazaCamera(const Camera* c)
     {
         if (this->camera[i] == c)
         {
-            this->camera[i]->setRezervat(false);
+            this->camera[i]->elibereaza();
 
             std::cout << "Camera a fost eliberata cu succes!" << '\n';
 
