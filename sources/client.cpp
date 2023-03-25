@@ -15,3 +15,16 @@ std::ostream& operator<<(std::ostream& out, const Client& c)
 
     return out;
 }
+
+Client& Client::operator=(const Client& b)
+{
+    if (this != &b)
+    {
+        this->nume = b.nume;
+        this->prenume = b.prenume;
+        this->CNP = b.CNP;
+        this->numarTelefon = b.numarTelefon;
+    }
+
+    return *this;
+}

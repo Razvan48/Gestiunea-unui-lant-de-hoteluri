@@ -105,4 +105,20 @@ void Hotel::elibereazaCamera(const Camera* c)
     std::cout << "Camera nu exista in cadrul hotelului!" << '\n';
 }
 
+Hotel& Hotel::operator=(const Hotel& b)
+{
+    if (this != &b)
+    {
+        this->nume = b.nume;
+        this->nrStele = b.nrStele;
 
+        for (size_t i = 0; i < this->camera.size(); i++)
+            delete this->camera[i];
+        this->camera.clear();
+
+        for (size_t i = 0; i < b.camera.size(); i++)
+            this->camera.push_back(b.camera[i]);
+    }
+
+    return *this;
+}

@@ -19,7 +19,7 @@ private:
     std::vector<Client*> client;
 
 public:
-    Camera(int numar, int etaj, bool rezervat = false) : numar(numar), etaj(etaj), rezervat(rezervat)
+    Camera(int numar = -1, int etaj = -1, bool rezervat = false) : numar(numar), etaj(etaj), rezervat(rezervat)
     {
 
     }
@@ -29,6 +29,8 @@ public:
         for (size_t i = 0; i < b.client.size(); i++)
             this->client.push_back(b.client[i]);
     }
+
+    Camera& operator=(const Camera& b);
 
     friend std::istream& operator>>(std::istream& in, Camera& obj);
     friend std::ostream& operator<<(std::ostream& out, const Camera& obj);

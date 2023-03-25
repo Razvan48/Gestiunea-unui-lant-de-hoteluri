@@ -16,7 +16,7 @@ private:
     std::string numarTelefon;
 
 public:
-    Client(const std::string& nume, const std::string& prenume, const std::string& CNP, const std::string& numarTelefon) :
+    Client(const std::string& nume = "", const std::string& prenume = "", const std::string& CNP = "", const std::string& numarTelefon = "") :
         nume(nume), prenume(prenume), CNP(CNP), numarTelefon(numarTelefon)
     {
 
@@ -26,6 +26,8 @@ public:
     {
 
     }
+
+    Client& operator=(const Client& b);
 
     friend std::iostream& operator>>(std::iostream& in, Client& c);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);

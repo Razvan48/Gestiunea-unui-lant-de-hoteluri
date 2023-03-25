@@ -20,7 +20,7 @@ private:
     std::vector<Camera*> camera;
 
 public:
-    Hotel(const std::string& nume, int nrStele) : nume(nume), nrStele(nrStele)
+    Hotel(const std::string& nume = "", int nrStele = -1) : nume(nume), nrStele(nrStele)
     {
 
     }
@@ -30,6 +30,8 @@ public:
         for (size_t i = 0; i < b.camera.size(); i++)
             this->camera.push_back(b.camera[i]);
     }
+
+    Hotel& operator=(const Hotel& b);
 
     friend std::istream& operator>>(std::istream& in, Hotel& h);
     friend std::ostream& operator<<(std::ostream& out, const Hotel& h);
