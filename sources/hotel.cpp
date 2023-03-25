@@ -104,3 +104,5 @@ void Hotel::elibereazaCamera(const Camera* c)
 
     std::cout << "Camera nu exista in cadrul hotelului!" << '\n';
 }
+
+

@@ -25,6 +25,12 @@ public:
 
     }
 
+    Hotel(const Hotel& b) : nume(b.nume), nrStele(b.nrStele)
+    {
+        for (size_t i = 0; i < b.camera.size(); i++)
+            this->camera.push_back(b.camera[i]);
+    }
+
     friend std::istream& operator>>(std::istream& in, Hotel& h);
     friend std::ostream& operator<<(std::ostream& out, const Hotel& h);
 

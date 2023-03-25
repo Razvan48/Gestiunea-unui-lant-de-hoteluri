@@ -24,6 +24,12 @@ public:
 
     }
 
+    Camera(const Camera& b) : numar(b.numar), etaj(b.etaj), rezervat(b.rezervat)
+    {
+        for (size_t i = 0; i < b.client.size(); i++)
+            this->client.push_back(b.client[i]);
+    }
+
     friend std::istream& operator>>(std::istream& in, Camera& obj);
     friend std::ostream& operator<<(std::ostream& out, const Camera& obj);
 

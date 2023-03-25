@@ -22,8 +22,23 @@ public:
 
     }
 
+    Client(const Client& b) : nume(b.nume), prenume(b.prenume), CNP(b.CNP), numarTelefon(b.numarTelefon)
+    {
+
+    }
+
     friend std::iostream& operator>>(std::iostream& in, Client& c);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
+
+    bool operator==(const Client& b) const
+    {
+        return this->nume == b.nume && this->prenume == b.prenume && this->CNP == b.CNP && this->numarTelefon == b.numarTelefon;
+    }
+
+    bool operator!=(const Client& b) const
+    {
+        return this->nume != b.nume || this->prenume != b.prenume || this->CNP != b.CNP || this->numarTelefon != b.numarTelefon;
+    }
 
     ~Client()
     {
