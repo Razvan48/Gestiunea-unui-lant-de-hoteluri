@@ -6,25 +6,26 @@
 
 int main()
 {
-    /// std::ifstream in("tastatura.in");
+    std::ifstream in("input.txt");
+    std::ofstream out("output.txt");
 
     Hotel h = Hotel();
-    std::cin >> h;
+    in >> h;
 
-    std::cout << h << '\n';
+    out << h << '\n';
 
     Camera c[5];
 
     for (size_t i = 0; i < 5; i++)
     {
-        std::cin >> c[i];
+        in >> c[i];
         h.adaugaCamera(c[i]);
     }
 
-    std::cout << c[4] << '\n';
-    std::cout << c[1] << '\n';
+    out << c[4] << '\n';
+    out << c[1] << '\n';
 
-    std::cout << h << '\n';
+    out << h << '\n';
 
     h.rezervaCamera();
     h.rezervaCamera();
@@ -37,6 +38,9 @@ int main()
 
     h.rezervaCamera();
     h.rezervaCamera();
+
+    in.close();
+    out.close();
 
     return 0;
 }
