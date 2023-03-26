@@ -23,12 +23,10 @@ Camera& Camera::operator=(const Camera& b)
 
         this->rezervat = b.rezervat;
 
-        for (size_t i = 0; i < this->client.size(); i++)
-            delete this->client[i];
-        this->client.clear();
+        this->clienti.clear();
 
-        for (size_t i = 0; i < b.client.size(); i++)
-            this->client.push_back(b.client[i]);
+        for (size_t i = 0; i < b.clienti.size(); i++)
+            this->clienti.push_back(b.clienti[i]);
     }
 
     return *this;

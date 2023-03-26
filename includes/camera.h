@@ -16,7 +16,7 @@ private:
     int etaj;
 
     bool rezervat;
-    std::vector<Client*> client;
+    std::vector<Client> clienti;
 
 public:
     Camera(int numar = -1, int etaj = -1, bool rezervat = false) : numar(numar), etaj(etaj), rezervat(rezervat)
@@ -26,8 +26,19 @@ public:
 
     Camera(const Camera& b) : numar(b.numar), etaj(b.etaj), rezervat(b.rezervat)
     {
-        for (size_t i = 0; i < b.client.size(); i++)
-            this->client.push_back(b.client[i]);
+        this->clienti.clear();
+        for (size_t i = 0; i < b.clienti.size(); i++)
+            this->clienti.push_back(b.clienti[i]);
+    }
+
+    int getNumar()
+    {
+        return this->numar;
+    }
+
+    int getEtaj()
+    {
+        return this->etaj;
     }
 
     Camera& operator=(const Camera& b);
@@ -45,41 +56,24 @@ public:
         this->rezervat = true;
     }
 
-    void rezerva(Client* c)
+    void rezerva(Client& c)
     {
         this->rezervat = true;
-        this->client.push_back(c);
+        this->clienti.push_back(c);
     }
 
-    void rezerva(const std::vector<Client*>& c)
+    void rezerva(const std::vector<Client>& c)
     {
         this->rezervat = true;
 
         for (size_t i = 0; i < c.size(); i++)
-            this->client.push_back(c[i]);
-    }
-
-    void adaugaClient(Client* c)
-    {
-        this->client.push_back(c);
+            this->clienti.push_back(c[i]);
     }
 
     void elibereaza()
     {
         this->rezervat = false;
-
-        //Depinde ce vrem sa facem. Daca legam un client strict de camera unde e cazat, atunci da, putem sterge clientii odata ce eliberam camera.
-        for (size_t i = 0; i < this->client.size(); i++)
-            delete this->client[i];
-        this->client.clear();
-    }
-
-    ~Camera()
-    {
-        //Depinde ce vrem sa facem. Daca legam un client strict de camera unde e cazat, atunci da, putem sterge clientii odata ce stergem camera.
-        for (size_t i = 0; i < this->client.size(); i++)
-            delete this->client[i];
-        this->client.clear();
+        this->clienti.clear();
     }
 };
 

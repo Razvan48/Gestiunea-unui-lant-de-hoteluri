@@ -1,8 +1,8 @@
 #include "../includes/hotel.h"
 
-void Hotel::adaugaCamera(Camera* c)
+void Hotel::adaugaCamera(Camera& c)
 {
-    this->camera.push_back(c);
+    this->camere.push_back(c);
 }
 
 std::istream& operator>>(std::istream& in, Hotel& h)
@@ -16,85 +16,85 @@ std::ostream& operator<<(std::ostream& out, const Hotel& h)
 {
     out << "Hotelul " << h.nume << " are " << h.nrStele << " stele" << '\n';
 
-    if (h.camera.empty())
+    if (h.camere.empty())
         out << "si nicio camera inregistrata!" << '\n';
     else
     {
         out << "si urmatoarele camere:" << '\n';
 
-        for (size_t i = 0; i < h.camera.size(); i++)
-            out << *h.camera[i];
+        for (size_t i = 0; i < h.camere.size(); i++)
+            out << h.camere[i];
     }
 
     return out;
 }
 
-void operator+=(Hotel& h, Camera* c)
+void operator+=(Hotel& h, Camera& c)
 {
-    h.camera.push_back(c);
+    h.camere.push_back(c);
 }
 
-Camera* Hotel::rezervaCamera()
+void Hotel::rezervaCamera()
 {
-    for (size_t i = 0; i < this->camera.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); i++)
     {
-        if (!this->camera[i]->getRezervat())
+        if (!this->camere[i].getRezervat())
         {
-            this->camera[i]->rezerva();
+            this->camere[i].rezerva();
 
-            std::cout << *this->camera[i] << "a fost rezervata!" << '\n';
+            std::cout << this->camere[i] << "a fost rezervata!" << '\n';
 
-            return this->camera[i];
+            return;
         }
     }
 
     std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
-    return nullptr;
+    return;
 }
 
-Camera* Hotel::rezervaCamera(Client* c)
+void Hotel::rezervaCamera(Client& c)
 {
-    for (size_t i = 0; i < this->camera.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); i++)
     {
-        if (!this->camera[i]->getRezervat())
+        if (!this->camere[i].getRezervat())
         {
-            this->camera[i]->rezerva(c);
+            this->camere[i].rezerva(c);
 
-            std::cout << *this->camera[i] << "a fost rezervata!" << '\n';
+            std::cout << this->camere[i] << "a fost rezervata!" << '\n';
 
-            return this->camera[i];
+            return;
         }
     }
 
     std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
-    return nullptr;
+    return;
 }
 
-Camera* Hotel::rezervaCamera(const std::vector<Client*>& c)
+void Hotel::rezervaCamera(const std::vector<Client>& c)
 {
-    for (size_t i = 0; i < this->camera.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); i++)
     {
-        if (!this->camera[i]->getRezervat())
+        if (!this->camere[i].getRezervat())
         {
-            this->camera[i]->rezerva(c);
+            this->camere[i].rezerva(c);
 
-            std::cout << *this->camera[i] << "a fost rezervata!" << '\n';
+            std::cout << this->camere[i] << "a fost rezervata!" << '\n';
 
-            return this->camera[i];
+            return;
         }
     }
 
     std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
-    return nullptr;
+    return;
 }
 
-void Hotel::elibereazaCamera(const Camera* c)
+void Hotel::elibereazaCamera(int numar, int etaj)
 {
-    for (size_t i = 0; i < this->camera.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); i++)
     {
-        if (this->camera[i] == c)
+        if (this->camere[i].getNumar() == numar && this->camere[i].getEtaj() == etaj)
         {
-            this->camera[i]->elibereaza();
+            this->camere[i].elibereaza();
 
             std::cout << "Camera a fost eliberata cu succes!" << '\n';
 
@@ -103,6 +103,7 @@ void Hotel::elibereazaCamera(const Camera* c)
     }
 
     std::cout << "Camera nu exista in cadrul hotelului!" << '\n';
+    return;
 }
 
 Hotel& Hotel::operator=(const Hotel& b)
@@ -112,12 +113,10 @@ Hotel& Hotel::operator=(const Hotel& b)
         this->nume = b.nume;
         this->nrStele = b.nrStele;
 
-        for (size_t i = 0; i < this->camera.size(); i++)
-            delete this->camera[i];
-        this->camera.clear();
+        this->camere.clear();
 
-        for (size_t i = 0; i < b.camera.size(); i++)
-            this->camera.push_back(b.camera[i]);
+        for (size_t i = 0; i < b.camere.size(); i++)
+            this->camere.push_back(b.camere[i]);
     }
 
     return *this;
