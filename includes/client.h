@@ -29,7 +29,7 @@ public:
 
     Client& operator=(const Client& b);
 
-    friend std::iostream& operator>>(std::iostream& in, Client& c);
+    friend std::istream& operator>>(std::istream& in, Client& c);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
 
     bool operator==(const Client& b) const

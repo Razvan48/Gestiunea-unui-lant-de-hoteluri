@@ -1,6 +1,6 @@
 #include "../includes/client.h"
 
-std::iostream& operator>>(std::iostream& in, Client& c)
+std::istream& operator>>(std::istream& in, Client& c)
 {
     in >> c.nume >> c.prenume >> c.CNP >> c.numarTelefon;
 
