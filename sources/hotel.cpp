@@ -111,7 +111,11 @@ Hotel& Hotel::operator=(const Hotel& b)
     if (this != &b)
     {
         Hotel temp(b);
-        std::swap(*this, temp);
+        //std::swap(*this, temp); eroare
+
+        std::swap(this->nume, temp.nume);
+        std::swap(this->nrStele, temp.nrStele);
+        std::swap(this->camere, temp.camere);
     }
 
     return *this;

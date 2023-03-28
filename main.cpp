@@ -51,6 +51,9 @@ int main()
 
     h[1] = h[0];
 
+    c[2] = c[3];
+    cli[2] = cli[3];
+
     Hotel hh(h[1]);
 
     hh.rezervaCamera(cli[0]);
@@ -65,6 +68,9 @@ int main()
     {
         h[1].elibereazaCamera(c[i].getNumar(), c[i].getEtaj());
     }
+
+    std::cout << "Press any key to continue." << '\n';
+    std::cin.get();
 
     in.close();
     out.close();

@@ -21,7 +21,12 @@ Client& Client::operator=(const Client& b)
     if (this != &b)
     {
         Client temp(b);
-        std::swap(*this, temp);
+        // std::swap(*this, temp); eroare
+
+        std::swap(this->nume, temp.nume);
+        std::swap(this->prenume, temp.prenume);
+        std::swap(this->CNP, temp.CNP);
+        std::swap(this->numarTelefon, temp.numarTelefon);
     }
 
     return *this;

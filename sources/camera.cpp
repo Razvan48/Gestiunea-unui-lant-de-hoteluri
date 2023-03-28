@@ -19,7 +19,12 @@ Camera& Camera::operator=(const Camera& b)
     if (this != &b)
     {
         Camera temp(b);
-        std::swap(*this, temp);
+        //std::swap(*this, temp); eroare
+
+        std::swap(this->numar, temp.numar);
+        std::swap(this->etaj, temp.etaj);
+        std::swap(this->rezervat, temp.rezervat);
+        std::swap(this->clienti, temp.clienti);
     }
 
     return *this;
