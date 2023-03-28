@@ -18,15 +18,8 @@ Camera& Camera::operator=(const Camera& b)
 {
     if (this != &b)
     {
-        this->numar = b.numar;
-        this->etaj = b.etaj;
-
-        this->rezervat = b.rezervat;
-
-        this->clienti.clear();
-
-        for (size_t i = 0; i < b.clienti.size(); i++)
-            this->clienti.push_back(b.clienti[i]);
+        Camera temp(b);
+        std::swap(*this, temp);
     }
 
     return *this;

@@ -20,10 +20,8 @@ Client& Client::operator=(const Client& b)
 {
     if (this != &b)
     {
-        this->nume = b.nume;
-        this->prenume = b.prenume;
-        this->CNP = b.CNP;
-        this->numarTelefon = b.numarTelefon;
+        Client temp(b);
+        std::swap(*this, temp);
     }
 
     return *this;

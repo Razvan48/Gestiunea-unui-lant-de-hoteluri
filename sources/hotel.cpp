@@ -110,13 +110,8 @@ Hotel& Hotel::operator=(const Hotel& b)
 {
     if (this != &b)
     {
-        this->nume = b.nume;
-        this->nrStele = b.nrStele;
-
-        this->camere.clear();
-
-        for (size_t i = 0; i < b.camere.size(); i++)
-            this->camere.push_back(b.camere[i]);
+        Hotel temp(b);
+        std::swap(*this, temp);
     }
 
     return *this;
