@@ -179,7 +179,7 @@ void Hotel::angajeaza(const Angajat& a)
         std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
 }
 
-void Hotel::angajeaza(const Persoana& p, const std::string functie, int salariu)
+void Hotel::angajeaza(const Persoana& p, const std::string& functie, int salariu)
 {
     Angajat a(p.getNume(), p.getPrenume(), p.getNumarTelefon(), functie, salariu);
 
@@ -195,7 +195,7 @@ void Hotel::angajeaza(const Persoana& p, const std::string functie, int salariu)
         std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
 }
 
-void Hotel::concediaza(const Angajat &a)
+void Hotel::concediaza(const Angajat& a)
 {
     for (size_t i = 0; i < this->angajati.size(); i++)
     {

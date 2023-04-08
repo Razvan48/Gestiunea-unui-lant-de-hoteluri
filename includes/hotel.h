@@ -52,8 +52,8 @@ public:
     void elibereazaCamera(int numar, int etaj);
 
     void angajeaza(const Angajat& a);
-    void angajeaza(const Persoana& p, const std::string functie, int salariu);
-    void concediaza(const Angajat &a);
+    void angajeaza(const Persoana& p, const std::string& functie, int salariu);
+    void concediaza(const Angajat& a);
     void concediaza(const Persoana& p);
 };
 
