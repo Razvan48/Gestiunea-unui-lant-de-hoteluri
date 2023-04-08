@@ -1,15 +1,17 @@
 Hotelul Hotel1 are 5 stele
-si nicio camera inregistrata!
+nicio camera inregistrata
+si niciun angajat!
 
 Camera 5, aflata la etajul 1
 
 Camera 2, aflata la etajul 1
 
 Hotelul Hotel1 are 5 stele
-si urmatoarele camere:
+urmatoarele camere:
 Camera 1, aflata la etajul 1
 Camera 2, aflata la etajul 1
 Camera 3, aflata la etajul 1
 Camera 4, aflata la etajul 1
 Camera 5, aflata la etajul 1
+si niciun angajat!
 

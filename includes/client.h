@@ -3,27 +3,27 @@
 
 #include <string>
 
+#include <iostream>
 #include <istream>
 #include <ostream>
 
-class Client
+#include "persoana.h"
+
+class Client : public Persoana
 {
 private:
 
-    std::string nume;
-    std::string prenume;
-    std::string numarTelefon;
-
 public:
     Client(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-") :
-        nume(nume), prenume(prenume), numarTelefon(numarTelefon)
+        Persoana(nume, prenume, numarTelefon)
     {
-
+        ///
     }
 
-    Client(const Client& b) : nume(b.nume), prenume(b.prenume), numarTelefon(b.numarTelefon)
+    Client(const Client& b) :
+        Persoana(b)
     {
-
+        ///
     }
 
     Client& operator=(const Client& b);
@@ -33,12 +33,22 @@ public:
 
     bool operator==(const Client& b) const
     {
-        return this->nume == b.nume && this->prenume == b.prenume && this->numarTelefon == b.numarTelefon;
+        if (!Persoana::operator==(b))
+            return false;
+
+        ///
+
+        return true;
     }
 
     bool operator!=(const Client& b) const
     {
-        return this->nume != b.nume || this->prenume != b.prenume || this->numarTelefon != b.numarTelefon;
+        if (!Persoana::operator!=(b))
+            return false;
+
+        ///
+
+        return true;
     }
 
     ~Client()

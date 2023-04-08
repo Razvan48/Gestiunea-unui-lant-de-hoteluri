@@ -10,6 +10,7 @@
 
 #include "camera.h"
 #include "client.h"
+#include "angajat.h"
 
 class Hotel
 {
@@ -19,8 +20,10 @@ private:
     int nrStele;
     std::vector<Camera> camere;
 
+    std::vector<Angajat> angajati;
+
 public:
-    Hotel(const std::string& nume = "", int nrStele = -1) : nume(nume), nrStele(nrStele)
+    Hotel(const std::string& nume = "-", int nrStele = -1) : nume(nume), nrStele(nrStele)
     {
 
     }
@@ -29,6 +32,8 @@ public:
     {
         for (size_t i = 0; i < b.camere.size(); i++)
             this->camere.push_back(b.camere[i]);
+        for (size_t i = 0; i < b.angajati.size(); i++)
+            this->angajati.push_back(b.angajati[i]);
     }
 
     Hotel& operator=(const Hotel& b);
@@ -39,11 +44,15 @@ public:
     void adaugaCamera(Camera& c);
 
     friend void operator+=(Hotel& h, Camera& c);
+    friend void operator-=(Hotel& h, Camera& c);
 
     void rezervaCamera();
     void rezervaCamera(Client& c);
     void rezervaCamera(const std::vector<Client>& c);
     void elibereazaCamera(int numar, int etaj);
+
+    void angajeaza(const Angajat& a);
+    void concediaza(const Angajat &a);
 };
 
 #endif

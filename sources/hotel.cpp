@@ -26,13 +26,23 @@ std::ostream& operator<<(std::ostream& out, const Hotel& h)
     out << "Hotelul " << h.nume << " are " << h.nrStele << " stele" << '\n';
 
     if (h.camere.empty())
-        out << "si nicio camera inregistrata!" << '\n';
+        out << "nicio camera inregistrata" << '\n';
     else
     {
-        out << "si urmatoarele camere:" << '\n';
+        out << "urmatoarele camere:" << '\n';
 
         for (size_t i = 0; i < h.camere.size(); i++)
             out << h.camere[i];
+    }
+
+    if (h.angajati.empty())
+        out << "si niciun angajat!" << '\n';
+    else
+    {
+        out << "urmatorii angajati:" << '\n';
+
+        for (size_t i = 0; i < h.angajati.size(); i++)
+            out << h.angajati[i];
     }
 
     return out;
@@ -50,6 +60,22 @@ void operator+=(Hotel& h, Camera& c)
         h.camere.emplace_back(c.getNumar(), c.getEtaj());
     else
         std::cout << "Camera ce trebuia adaugata in cadrul hotelului deja exista!" << '\n';
+}
+
+void operator-=(Hotel& h, Camera& c)
+{
+    for (size_t i = 0; i < h.camere.size(); i++)
+    {
+        if (h.camere[i].getNumar() == c.getNumar() && h.camere[i].getEtaj() == c.getEtaj())
+        {
+            std::swap(h.camere[i], h.camere.back());
+            h.camere.pop_back();
+
+            return;
+        }
+    }
+
+    std::cout << "Camera ce trebuia eliminata nu a fost gasita!" << '\n';
 }
 
 void Hotel::rezervaCamera()
@@ -133,7 +159,38 @@ Hotel& Hotel::operator=(const Hotel& b)
         std::swap(this->nume, temp.nume);
         std::swap(this->nrStele, temp.nrStele);
         std::swap(this->camere, temp.camere);
+        std::swap(this->angajati, temp.angajati);
     }
 
     return *this;
+}
+
+void Hotel::angajeaza(const Angajat& a)
+{
+    bool angajatDejaExistent = false;
+
+    for (size_t i = 0; i < this->angajati.size() && !angajatDejaExistent; i++)
+        if (this->angajati[i] == a)
+            angajatDejaExistent = true;
+
+    if (!angajatDejaExistent)
+        this->angajati.emplace_back(a);
+    else
+        std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
+}
+
+void Hotel::concediaza(const Angajat &a)
+{
+    for (size_t i = 0; i < this->angajati.size(); i++)
+    {
+        if (this->angajati[i] == a)
+        {
+            std::swap(this->angajati[i], this->angajati.back());
+            this->angajati.pop_back();
+
+            return;
+        }
+    }
+
+    std::cout << "Angajatul ce trebuia eliminat nu a fost gasit!" << '\n';
 }
