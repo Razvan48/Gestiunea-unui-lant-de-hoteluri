@@ -1,10 +1,13 @@
+# Gestiunea unui lant de hoteluri
+
 ### Descriere proiect
 
-  Proiectul se va ocupa cu gestiunea unui lant de hoteluri. Va exista functionalitatea necesara descrierii relatiilor dintre hoteluri, clienti, camere, sejururi, angajati, etc..
+####
+  Proiectul se va ocupa cu gestiunea unui lant de hoteluri. Va exista functionalitatea necesara descrierii relatiilor dintre hoteluri, clienti, camere, angajati.
 
-# OOP Template
+## Tema 0
 
-### Tema 0
+####
 
 - [ ] Nume proiect (poate fi schimbat ulterior)
 - [ ] Scurtă descriere a temei alese, ce v-ați propus să implementați
