@@ -19,7 +19,6 @@ Camera& Camera::operator=(const Camera& b)
     if (this != &b)
     {
         Camera temp(b);
-        //std::swap(*this, temp); eroare
 
         std::swap(this->numar, temp.numar);
         std::swap(this->etaj, temp.etaj);
@@ -28,4 +27,26 @@ Camera& Camera::operator=(const Camera& b)
     }
 
     return *this;
+}
+
+void Camera::rezerva(const std::vector<Client>& c)
+{
+    if (!this->rezervat)
+    {
+        this->rezervat = true;
+
+        for (size_t i = 0; i < c.size(); i++)
+        {
+            bool clientDejaAdaugat = false;
+
+            for (size_t j = 0; j < this->clienti.size() && !clientDejaAdaugat; j++)
+                if (this->clienti[j] == c[i])
+                    clientDejaAdaugat = true;
+
+            if (!clientDejaAdaugat)
+                this->clienti.push_back(c[i]);
+        }
+    }
+
+    std::cout << "Camera este deja rezervata!" << '\n';
 }

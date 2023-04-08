@@ -2,7 +2,16 @@
 
 void Hotel::adaugaCamera(Camera& c)
 {
-    this->camere.push_back(c);
+    bool cameraDejaExistenta = false;
+
+    for (size_t i = 0; i < this->camere.size() && !cameraDejaExistenta; i++)
+        if (this->camere[i].getNumar() == c.getNumar() && this->camere[i].getEtaj() == c.getEtaj())
+            cameraDejaExistenta = true;
+
+    if (!cameraDejaExistenta)
+        this->camere.emplace_back(c.getNumar(), c.getEtaj());
+    else
+        std::cout << "Camera ce trebuia adaugata in cadrul hotelului deja exista!" << '\n';
 }
 
 std::istream& operator>>(std::istream& in, Hotel& h)
@@ -31,7 +40,16 @@ std::ostream& operator<<(std::ostream& out, const Hotel& h)
 
 void operator+=(Hotel& h, Camera& c)
 {
-    h.camere.push_back(c);
+    bool cameraDejaExistenta = false;
+
+    for (size_t i = 0; i < h.camere.size() && !cameraDejaExistenta; i++)
+        if (h.camere[i].getNumar() == c.getNumar() && h.camere[i].getEtaj() == c.getEtaj())
+            cameraDejaExistenta = true;
+
+    if (!cameraDejaExistenta)
+        h.camere.emplace_back(c.getNumar(), c.getEtaj());
+    else
+        std::cout << "Camera ce trebuia adaugata in cadrul hotelului deja exista!" << '\n';
 }
 
 void Hotel::rezervaCamera()
@@ -111,7 +129,6 @@ Hotel& Hotel::operator=(const Hotel& b)
     if (this != &b)
     {
         Hotel temp(b);
-        //std::swap(*this, temp); eroare
 
         std::swap(this->nume, temp.nume);
         std::swap(this->nrStele, temp.nrStele);

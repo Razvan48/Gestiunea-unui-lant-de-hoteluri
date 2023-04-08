@@ -12,17 +12,16 @@ private:
 
     std::string nume;
     std::string prenume;
-    std::string CNP;
     std::string numarTelefon;
 
 public:
-    Client(const std::string& nume = "", const std::string& prenume = "", const std::string& CNP = "", const std::string& numarTelefon = "") :
-        nume(nume), prenume(prenume), CNP(CNP), numarTelefon(numarTelefon)
+    Client(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-") :
+        nume(nume), prenume(prenume), numarTelefon(numarTelefon)
     {
 
     }
 
-    Client(const Client& b) : nume(b.nume), prenume(b.prenume), CNP(b.CNP), numarTelefon(b.numarTelefon)
+    Client(const Client& b) : nume(b.nume), prenume(b.prenume), numarTelefon(b.numarTelefon)
     {
 
     }
@@ -34,12 +33,12 @@ public:
 
     bool operator==(const Client& b) const
     {
-        return this->nume == b.nume && this->prenume == b.prenume && this->CNP == b.CNP && this->numarTelefon == b.numarTelefon;
+        return this->nume == b.nume && this->prenume == b.prenume && this->numarTelefon == b.numarTelefon;
     }
 
     bool operator!=(const Client& b) const
     {
-        return this->nume != b.nume || this->prenume != b.prenume || this->CNP != b.CNP || this->numarTelefon != b.numarTelefon;
+        return this->nume != b.nume || this->prenume != b.prenume || this->numarTelefon != b.numarTelefon;
     }
 
     ~Client()

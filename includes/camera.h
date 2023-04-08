@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include <iostream>
 #include <istream>
 #include <ostream>
 
@@ -53,22 +54,28 @@ public:
 
     void rezerva()
     {
-        this->rezervat = true;
+        if (!this->rezervat)
+        {
+            this->rezervat = true;
+            return;
+        }
+
+        std::cout << "Camera este deja rezervata!" << '\n';
     }
 
     void rezerva(Client& c)
     {
-        this->rezervat = true;
-        this->clienti.push_back(c);
+        if (!this->rezervat)
+        {
+            this->rezervat = true;
+            this->clienti.push_back(c);
+            return;
+        }
+
+        std::cout << "Camera este deja rezervata!" << '\n';
     }
 
-    void rezerva(const std::vector<Client>& c)
-    {
-        this->rezervat = true;
-
-        for (size_t i = 0; i < c.size(); i++)
-            this->clienti.push_back(c[i]);
-    }
+    void rezerva(const std::vector<Client>& c);
 
     void elibereaza()
     {
