@@ -69,6 +69,14 @@ int main()
         h[1].elibereazaCamera(c[i].getNumar(), c[i].getEtaj());
     }
 
+    Angajat a[10];
+
+    a[0] = Angajat("Popescu", "Ion", "-", "receptionist", 4000);
+
+    h[1].angajeaza(a[0]);
+    h[0].concediaza(a[0]);
+    h[1].concediaza(a[0]);
+
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
 
