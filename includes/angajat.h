@@ -40,7 +40,9 @@ public:
         if (!Persoana::operator==(b))
             return false;
 
-        return this->functie == b.functie && this->salariu == b.salariu;
+        /// return this->functie == b.functie && this->salariu == b.salariu;
+
+        return true;
     }
 
     bool operator!=(const Angajat& b) const
@@ -48,7 +50,9 @@ public:
         if (!Persoana::operator!=(b))
             return false;
 
-        return this->functie != b.functie || this->salariu != b.salariu;
+        /// return this->functie != b.functie || this->salariu != b.salariu;
+
+        return true;
     }
 
     ~Angajat()

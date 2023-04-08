@@ -179,8 +179,42 @@ void Hotel::angajeaza(const Angajat& a)
         std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
 }
 
+void Hotel::angajeaza(const Persoana& p, const std::string functie, int salariu)
+{
+    Angajat a(p.getNume(), p.getPrenume(), p.getNumarTelefon(), functie, salariu);
+
+    bool angajatDejaExistent = false;
+
+    for (size_t i = 0; i < this->angajati.size() && !angajatDejaExistent; i++)
+        if (this->angajati[i] == a)
+            angajatDejaExistent = true;
+
+    if (!angajatDejaExistent)
+        this->angajati.emplace_back(a);
+    else
+        std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
+}
+
 void Hotel::concediaza(const Angajat &a)
 {
+    for (size_t i = 0; i < this->angajati.size(); i++)
+    {
+        if (this->angajati[i] == a)
+        {
+            std::swap(this->angajati[i], this->angajati.back());
+            this->angajati.pop_back();
+
+            return;
+        }
+    }
+
+    std::cout << "Angajatul ce trebuia eliminat nu a fost gasit!" << '\n';
+}
+
+void Hotel::concediaza(const Persoana& p)
+{
+    Angajat a(p.getNume(), p.getPrenume(), p.getNumarTelefon());
+
     for (size_t i = 0; i < this->angajati.size(); i++)
     {
         if (this->angajati[i] == a)

@@ -77,6 +77,13 @@ int main()
     h[0].concediaza(a[0]);
     h[1].concediaza(a[0]);
 
+    Persoana p[10];
+    p[0] = Persoana("Popescu", "Pop", "-");
+
+    h[1].angajeaza(p[0], "administrator", 5000);
+    h[1].concediaza(p[0]);
+    h[1].concediaza(p[0]);
+
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
 

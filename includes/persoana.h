@@ -32,6 +32,10 @@ public:
 
     Persoana& operator=(const Persoana& b);
 
+    std::string getNume() const { return this->nume; }
+    std::string getPrenume() const { return this->prenume; };
+    std::string getNumarTelefon() const { return this->numarTelefon; }
+
     friend std::istream& operator>>(std::istream& in, Persoana& p);
     friend std::ostream& operator<<(std::ostream& out, const Persoana& p);
 
