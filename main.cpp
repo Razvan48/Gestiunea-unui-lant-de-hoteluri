@@ -6,8 +6,8 @@
 
 int main()
 {
-    std::ifstream in("../input.txt");
-    std::ofstream out("../output.txt");
+    std::ifstream in("input.txt");
+    std::ofstream out("output.txt");
 
     Hotel h[2];
     //std::cin >> h;
