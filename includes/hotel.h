@@ -12,6 +12,8 @@
 #include "client.h"
 #include "angajat.h"
 
+#include "cameraDubla.h"
+
 #include "exceptie.h"
 
 class Hotel

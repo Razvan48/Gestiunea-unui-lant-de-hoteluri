@@ -44,4 +44,11 @@ public:
     eroareAplicatie("Eroare PERSOANA: " + mesaj) {};
 };
 
+class eroareCameraDubla : public eroareAplicatie
+{
+public:
+    explicit eroareCameraDubla(const std::string& mesaj) :
+    eroareAplicatie("Eroare CAMERA DUBLA: " + mesaj) {};
+};
+
 #endif

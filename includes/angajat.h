@@ -1,15 +1,7 @@
 #ifndef OOP_ANGAJAT_H
 #define OOP_ANGAJAT_H
 
-#include <string>
-
-#include <iostream>
-#include <istream>
-#include <ostream>
-
 #include "persoana.h"
-
-#include "exceptie.h"
 
 class Angajat : public Persoana
 {

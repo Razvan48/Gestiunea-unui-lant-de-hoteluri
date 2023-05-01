@@ -21,6 +21,8 @@ private:
     bool rezervat;
     std::vector<Client> clienti;
 
+    static const int pret = 1000;
+
 public:
     Camera(int numar = -1, int etaj = -1, bool rezervat = false) : numar(numar), etaj(etaj), rezervat(rezervat)
     {
@@ -32,6 +34,16 @@ public:
         this->clienti.clear();
         for (size_t i = 0; i < b.clienti.size(); i++)
             this->clienti.push_back(b.clienti[i]);
+    }
+
+    virtual int getPret() const
+    {
+        return Camera::pret;
+    }
+
+    virtual void descriere(std::ostream& out) const
+    {
+        out << "Aceasta este o camera standard." << '\n';
     }
 
     int getNumar()
@@ -88,6 +100,11 @@ public:
     {
         this->rezervat = false;
         this->clienti.clear();
+    }
+
+    virtual ~Camera()
+    {
+        
     }
 };
 

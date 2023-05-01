@@ -1,15 +1,7 @@
 #ifndef OOP_CLIENT_H
 #define OOP_CLIENT_H
 
-#include <string>
-
-#include <iostream>
-#include <istream>
-#include <ostream>
-
 #include "persoana.h"
-
-#include "exceptie.h"
 
 class Client : public Persoana
 {
