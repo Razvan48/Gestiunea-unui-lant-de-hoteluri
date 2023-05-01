@@ -9,6 +9,8 @@
 
 #include "persoana.h"
 
+#include "exceptie.h"
+
 class Angajat : public Persoana
 {
 private:
@@ -47,12 +49,7 @@ public:
 
     bool operator!=(const Angajat& b) const
     {
-        if (!Persoana::operator!=(b))
-            return false;
-
-        /// return this->functie != b.functie || this->salariu != b.salariu;
-
-        return true;
+        return !Angajat::operator==(b);
     }
 
     ~Angajat()

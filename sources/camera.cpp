@@ -46,6 +46,8 @@ void Camera::rezerva(const std::vector<Client>& c)
             if (!clientDejaAdaugat)
                 this->clienti.push_back(c[i]);
         }
+
+        return;
     }
 
     std::cout << "Camera este deja rezervata!" << '\n';

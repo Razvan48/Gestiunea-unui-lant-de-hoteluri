@@ -7,6 +7,8 @@
 #include <istream>
 #include <ostream>
 
+#include "exceptie.h"
+
 class Persoana
 {
 private:
@@ -46,7 +48,7 @@ public:
 
     bool operator!=(const Persoana& b) const
     {
-        return this->nume != b.nume || this->prenume != b.prenume || this->numarTelefon != b.numarTelefon;
+        return !Persoana::operator==(b);
     }
 
     ~Persoana()

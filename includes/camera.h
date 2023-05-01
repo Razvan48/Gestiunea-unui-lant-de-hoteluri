@@ -9,6 +9,8 @@
 
 #include "client.h"
 
+#include "exceptie.h"
+
 class Camera
 {
 private:
@@ -40,6 +42,11 @@ public:
     int getEtaj()
     {
         return this->etaj;
+    }
+
+    virtual Camera* cloneaza() const
+    {
+        return new Camera(*this);
     }
 
     Camera& operator=(const Camera& b);

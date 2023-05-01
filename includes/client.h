@@ -9,6 +9,8 @@
 
 #include "persoana.h"
 
+#include "exceptie.h"
+
 class Client : public Persoana
 {
 private:
@@ -43,12 +45,7 @@ public:
 
     bool operator!=(const Client& b) const
     {
-        if (!Persoana::operator!=(b))
-            return false;
-
-        ///
-
-        return true;
+        return !Client::operator==(b);
     }
 
     ~Client()

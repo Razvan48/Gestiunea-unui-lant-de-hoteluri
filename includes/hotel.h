@@ -12,6 +12,8 @@
 #include "client.h"
 #include "angajat.h"
 
+#include "exceptie.h"
+
 class Hotel
 {
 private:

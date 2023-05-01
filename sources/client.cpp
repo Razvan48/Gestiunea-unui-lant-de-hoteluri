@@ -24,11 +24,8 @@ Client& Client::operator=(const Client& b)
 {
     if (this != &b)
     {
+        Persoana::operator=(b);
         Client temp(b);
-
-        std::swap(this->nume, temp.nume);
-        std::swap(this->prenume, temp.prenume);
-        std::swap(this->numarTelefon, temp.numarTelefon);
 
         ///
     }
