@@ -1,5 +1,5 @@
-#ifndef OOP_PERSOANA_H
-#define OOP_PERSOANA_H
+#ifndef PERSOANA_H
+#define PERSOANA_H
 
 #include <string>
 
@@ -32,7 +32,14 @@ public:
 
     }
 
+    virtual void afiseaza(std::ostream& out) const;
+
     Persoana& operator=(const Persoana& b);
+
+    virtual Persoana* cloneaza() const
+    {
+        return new Persoana(*this);
+    }
 
     std::string getNume() const { return this->nume; }
     std::string getPrenume() const { return this->prenume; };
@@ -51,7 +58,7 @@ public:
         return !Persoana::operator==(b);
     }
 
-    ~Persoana()
+    virtual ~Persoana()
     {
 
     }

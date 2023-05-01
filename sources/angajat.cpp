@@ -34,3 +34,12 @@ Angajat& Angajat::operator=(const Angajat& b)
 
     return *this;
 }
+
+void Angajat::afiseaza(std::ostream& out) const
+{
+    out << "Angajatul " << this->nume << " " << this->prenume << '\n';
+    out << "are numarul de telefon " << this->numarTelefon << '\n';
+
+    out << "ocupa functia de " << this->functie << '\n';
+    out << "si are salariul de " << this->salariu << '\n';
+}

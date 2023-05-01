@@ -28,3 +28,9 @@ Persoana& Persoana::operator=(const Persoana& b)
 
     return *this;
 }
+
+void Persoana::afiseaza(std::ostream& out) const
+{
+    out << "Persoana " << this->nume << " " << this->prenume << '\n';
+    out << "are numarul de telefon " << this->numarTelefon << '\n';
+}

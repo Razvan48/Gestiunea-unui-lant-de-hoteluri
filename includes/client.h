@@ -1,5 +1,5 @@
-#ifndef OOP_CLIENT_H
-#define OOP_CLIENT_H
+#ifndef CLIENT_H
+#define CLIENT_H
 
 #include "persoana.h"
 
@@ -18,6 +18,13 @@ public:
         Persoana(b)
     {
         ///
+    }
+
+    void afiseaza(std::ostream& out) const override;
+
+    Client* cloneaza() const override
+    {
+        return new Client(*this);
     }
 
     Client& operator=(const Client& b);

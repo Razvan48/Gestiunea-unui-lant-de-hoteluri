@@ -2,16 +2,16 @@ Hotelul Hotel1 are 5 stele
 nicio camera inregistrata
 si niciun angajat!
 
-Camera 5, aflata la etajul 1
+CameraStandard 5, aflata la etajul 1
 
-Camera 2, aflata la etajul 1
+CameraStandard 2, aflata la etajul 1
 
 Hotelul Hotel1 are 5 stele
 urmatoarele camere:
-Camera 1, aflata la etajul 1
-Camera 2, aflata la etajul 1
-Camera 3, aflata la etajul 1
-Camera 4, aflata la etajul 1
-Camera 5, aflata la etajul 1
+CameraStandard 1, aflata la etajul 1
+CameraStandard 2, aflata la etajul 1
+CameraStandard 3, aflata la etajul 1
+CameraStandard 4, aflata la etajul 1
+CameraStandard 5, aflata la etajul 1
 si niciun angajat!
 

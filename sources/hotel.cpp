@@ -4,12 +4,14 @@ void Hotel::adaugaCamera(Camera& c)
 {
     bool cameraDejaExistenta = false;
 
-    for (size_t i = 0; i < this->camere.size() && !cameraDejaExistenta; i++)
-        if (this->camere[i].getNumar() == c.getNumar() && this->camere[i].getEtaj() == c.getEtaj())
+    /*
+    for (size_t i = 0; i < this->camere.size() && !cameraDejaExistenta; ++i)
+        if (this->camere[i]->getNumar() == c.getNumar() && this->camere[i]->getEtaj() == c.getEtaj())
             cameraDejaExistenta = true;
+            */
 
     if (!cameraDejaExistenta)
-        this->camere.emplace_back(c.getNumar(), c.getEtaj());
+        this->camere.push_back(c.cloneaza());
     else
         std::cout << "Camera ce trebuia adaugata in cadrul hotelului deja exista!" << '\n';
 }
@@ -31,8 +33,8 @@ std::ostream& operator<<(std::ostream& out, const Hotel& h)
     {
         out << "urmatoarele camere:" << '\n';
 
-        for (size_t i = 0; i < h.camere.size(); i++)
-            out << h.camere[i];
+        for (size_t i = 0; i < h.camere.size(); ++i)
+            h.camere[i]->afiseaza(out);
     }
 
     if (h.angajati.empty())
@@ -41,25 +43,27 @@ std::ostream& operator<<(std::ostream& out, const Hotel& h)
     {
         out << "urmatorii angajati:" << '\n';
 
-        for (size_t i = 0; i < h.angajati.size(); i++)
-            out << h.angajati[i];
+        for (size_t i = 0; i < h.angajati.size(); ++i)
+            h.angajati[i]->afiseaza(out);
     }
 
     return out;
 }
 
-void operator+=(Hotel& h, Camera& c)
+void operator+=(Hotel& h, CameraStandard& c)
 {
     h.adaugaCamera(c);
 }
 
-void operator-=(Hotel& h, Camera& c)
+/*
+void operator-=(Hotel& h, CameraStandard& c)
 {
-    for (size_t i = 0; i < h.camere.size(); i++)
+    for (size_t i = 0; i < h.camere.size(); ++i)
     {
-        if (h.camere[i].getNumar() == c.getNumar() && h.camere[i].getEtaj() == c.getEtaj())
+        if (h.camere[i]->getNumar() == c.getNumar() && h.camere[i]->getEtaj() == c.getEtaj())
         {
             std::swap(h.camere[i], h.camere.back());
+            delete h.camere.back();
             h.camere.pop_back();
 
             return;
@@ -68,19 +72,23 @@ void operator-=(Hotel& h, Camera& c)
 
     std::cout << "Camera ce trebuia eliminata nu a fost gasita!" << '\n';
 }
+ */
 
 void Hotel::rezervaCamera()
 {
-    for (size_t i = 0; i < this->camere.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); ++i)
     {
-        if (!this->camere[i].getRezervat())
+        /*
+        if (!this->camere[i]->getRezervat())
         {
-            this->camere[i].rezerva();
+            this->camere[i]->rezerva();
 
-            std::cout << this->camere[i] << "a fost rezervata!" << '\n';
+            this->camere[i]->afiseaza(std::cout);
+            std::cout  << "a fost rezervata!" << '\n';
 
             return;
         }
+         */
     }
 
     std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
@@ -89,16 +97,19 @@ void Hotel::rezervaCamera()
 
 void Hotel::rezervaCamera(Client& c)
 {
-    for (size_t i = 0; i < this->camere.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); ++i)
     {
-        if (!this->camere[i].getRezervat())
+        /*
+        if (!this->camere[i]->getRezervat())
         {
-            this->camere[i].rezerva(c);
+            this->camere[i]->rezerva(c);
 
-            std::cout << this->camere[i] << "a fost rezervata!" << '\n';
+            this->camere[i]->afiseaza(std::cout);
+            std::cout << "a fost rezervata!" << '\n';
 
             return;
         }
+         */
     }
 
     std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
@@ -107,16 +118,19 @@ void Hotel::rezervaCamera(Client& c)
 
 void Hotel::rezervaCamera(const std::vector<Client>& c)
 {
-    for (size_t i = 0; i < this->camere.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); ++i)
     {
-        if (!this->camere[i].getRezervat())
+        /*
+        if (!this->camere[i]->getRezervat())
         {
-            this->camere[i].rezerva(c);
+            this->camere[i]->rezerva(c);
 
-            std::cout << this->camere[i] << "a fost rezervata!" << '\n';
+            this->camere[i]->afiseaza(std::cout);
+            std::cout << "a fost rezervata!" << '\n';
 
             return;
         }
+         */
     }
 
     std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
@@ -125,16 +139,18 @@ void Hotel::rezervaCamera(const std::vector<Client>& c)
 
 void Hotel::elibereazaCamera(int numar, int etaj)
 {
-    for (size_t i = 0; i < this->camere.size(); i++)
+    for (size_t i = 0; i < this->camere.size(); ++i)
     {
-        if (this->camere[i].getNumar() == numar && this->camere[i].getEtaj() == etaj)
+        /*
+        if (this->camere[i]->getNumar() == numar && this->camere[i]->getEtaj() == etaj)
         {
-            this->camere[i].elibereaza();
+            this->camere[i]->elibereaza();
 
             std::cout << "Camera a fost eliberata cu succes!" << '\n';
 
             return;
         }
+         */
     }
 
     std::cout << "Camera nu exista in cadrul hotelului!" << '\n';
@@ -149,8 +165,37 @@ Hotel& Hotel::operator=(const Hotel& b)
 
         std::swap(this->nume, temp.nume);
         std::swap(this->nrStele, temp.nrStele);
-        std::swap(this->camere, temp.camere);
-        std::swap(this->angajati, temp.angajati);
+
+        for (size_t i = 0; i < this->camere.size(); ++i)
+        {
+            if (this->camere[i] != nullptr)
+                delete this->camere[i];
+            this->camere[i] = nullptr;
+        }
+        for (size_t i = 0; i < this->angajati.size(); ++i)
+        {
+            if (this->angajati[i] != nullptr)
+                delete this->angajati[i];
+            this->angajati[i] = nullptr;
+        }
+        this->camere.clear();
+        this->angajati.clear();
+
+        for (size_t i = 0; i < temp.camere.size(); ++i)
+        {
+            if (temp.camere[i] != nullptr)
+                this->camere.push_back(temp.camere[i]->cloneaza());
+            else
+                this->camere.push_back(nullptr);
+        }
+
+        for (size_t i = 0; i < temp.angajati.size(); ++i)
+        {
+            if (temp.angajati[i] != nullptr)
+                this->angajati.push_back(temp.angajati[i]->cloneaza());
+            else
+                this->angajati.push_back(nullptr);
+        }
     }
 
     return *this;
@@ -161,11 +206,11 @@ void Hotel::angajeaza(const Angajat& a)
     bool angajatDejaExistent = false;
 
     for (size_t i = 0; i < this->angajati.size() && !angajatDejaExistent; i++)
-        if (this->angajati[i] == a)
+        if ((*(this->angajati[i])) == a)
             angajatDejaExistent = true;
 
     if (!angajatDejaExistent)
-        this->angajati.emplace_back(a);
+        this->angajati.push_back(a.cloneaza());
     else
         std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
 }
@@ -179,11 +224,12 @@ void Hotel::angajeaza(const Persoana& p, const std::string& functie, int salariu
 
 void Hotel::concediaza(const Angajat& a)
 {
-    for (size_t i = 0; i < this->angajati.size(); i++)
+    for (size_t i = 0; i < this->angajati.size(); ++i)
     {
-        if (this->angajati[i] == a)
+        if ((*(this->angajati[i]))== a)
         {
             std::swap(this->angajati[i], this->angajati.back());
+            delete this->angajati.back();
             this->angajati.pop_back();
 
             return;

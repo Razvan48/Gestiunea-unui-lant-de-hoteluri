@@ -1,5 +1,5 @@
-#ifndef OOP_ANGAJAT_H
-#define OOP_ANGAJAT_H
+#ifndef ANGAJAT_H
+#define ANGAJAT_H
 
 #include "persoana.h"
 
@@ -17,12 +17,20 @@ public:
         ///
     }
 
+    void afiseaza(std::ostream& out) const override;
+
     Angajat(const Angajat& b) :
             Persoana(b)
     {
         this->functie = b.functie;
         this->salariu = b.salariu;
     }
+
+    Angajat* cloneaza() const override
+    {
+        return new Angajat(*this);
+    }
+
 
     Angajat& operator=(const Angajat& b);
 

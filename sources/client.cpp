@@ -32,3 +32,11 @@ Client& Client::operator=(const Client& b)
 
     return *this;
 }
+
+void Client::afiseaza(std::ostream& out) const
+{
+    out << "Clientul " << this->nume << " " << this->prenume << '\n';
+    out << "are numarul de telefon " << this->numarTelefon << '\n';
+
+    ///
+}

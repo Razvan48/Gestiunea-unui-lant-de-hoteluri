@@ -2,13 +2,14 @@
 #include <fstream>
 
 #include "includes/hotel.h"
-#include "includes/camera.h"
+#include "includes/cameraStandard.h"
 
 int main()
 {
     std::ifstream in("input.txt");
     std::ofstream out("output.txt");
 
+    /*
     Hotel h[2];
     //std::cin >> h;
     in >> h[0];
@@ -16,7 +17,7 @@ int main()
     //std::cout << h << '\n';
     out << h[0] << '\n';
 
-    Camera c[5];
+    CameraStandard c[5];
 
     for (int i = 0; i < 5; i++)
     {
@@ -86,6 +87,7 @@ int main()
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
+     */
 
     in.close();
     out.close();

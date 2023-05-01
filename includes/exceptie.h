@@ -1,5 +1,5 @@
-#ifndef OOP_EXCEPTIE_H
-#define OOP_EXCEPTIE_H
+#ifndef EXCEPTIE_H
+#define EXCEPTIE_H
 
 #include <stdexcept>
 #include <string>
@@ -44,11 +44,25 @@ public:
     eroareAplicatie("Eroare PERSOANA: " + mesaj) {};
 };
 
+class eroareCameraStandard : public eroareAplicatie
+{
+public:
+    explicit eroareCameraStandard(const std::string& mesaj) :
+            eroareAplicatie("Eroare CAMERA STANDARD: " + mesaj) {};
+};
+
 class eroareCameraDubla : public eroareAplicatie
 {
 public:
     explicit eroareCameraDubla(const std::string& mesaj) :
     eroareAplicatie("Eroare CAMERA DUBLA: " + mesaj) {};
+};
+
+class eroarePreaMultiClienti : public eroareCameraDubla
+{
+public:
+    explicit eroarePreaMultiClienti(const std::string& mesaj) :
+    eroareCameraDubla("prea multi clienti: " + mesaj) {};
 };
 
 #endif
