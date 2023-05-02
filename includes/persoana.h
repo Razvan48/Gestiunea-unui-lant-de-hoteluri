@@ -22,28 +22,9 @@ protected:
 public:
 
     Persoana(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-") :
-            nume(nume), prenume(prenume), numarTelefon(numarTelefon)
-    {
+            nume(nume), prenume(prenume), numarTelefon(numarTelefon) {}
 
-    }
-
-    Persoana(const Persoana& b) : nume(b.nume), prenume(b.prenume), numarTelefon(b.numarTelefon)
-    {
-
-    }
-
-    virtual void afiseaza(std::ostream& out) const;
-
-    Persoana& operator=(const Persoana& b);
-
-    virtual Persoana* cloneaza() const
-    {
-        return new Persoana(*this);
-    }
-
-    std::string getNume() const { return this->nume; }
-    std::string getPrenume() const { return this->prenume; };
-    std::string getNumarTelefon() const { return this->numarTelefon; }
+    Persoana(const Persoana& b) : nume(b.nume), prenume(b.prenume), numarTelefon(b.numarTelefon) {}
 
     friend std::istream& operator>>(std::istream& in, Persoana& p);
     friend std::ostream& operator<<(std::ostream& out, const Persoana& p);
@@ -53,15 +34,16 @@ public:
         return this->nume == b.nume && this->prenume == b.prenume && this->numarTelefon == b.numarTelefon;
     }
 
-    bool operator!=(const Persoana& b) const
-    {
-        return !Persoana::operator==(b);
-    }
+    bool operator!=(const Persoana& b) const { return !Persoana::operator==(b); }
 
-    virtual ~Persoana()
-    {
+    std::string getNume() const { return this->nume; }
+    std::string getPrenume() const { return this->prenume; };
+    std::string getNumarTelefon() const { return this->numarTelefon; }
 
-    }
+    virtual Persoana* cloneaza() const = 0;
+    virtual void afiseaza(std::ostream& out) const = 0;
+
+    virtual ~Persoana() {}
 };
 
 #endif

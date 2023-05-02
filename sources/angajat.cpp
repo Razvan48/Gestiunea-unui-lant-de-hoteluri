@@ -1,5 +1,19 @@
 #include "../includes/angajat.h"
 
+Angajat& Angajat::operator=(const Angajat& b)
+{
+    if (this != &b)
+    {
+        Persoana::operator=(b);
+        Angajat temp(b);
+
+        std::swap(this->functie, temp.functie);
+        std::swap(this->salariu, temp.salariu);
+    }
+
+    return *this;
+}
+
 std::istream& operator>>(std::istream& in, Angajat& a)
 {
     Persoana& p = a;
@@ -19,20 +33,6 @@ std::ostream& operator<<(std::ostream& out, const Angajat& a)
     out << "si are salariul de " << a.salariu << '\n';
 
     return out;
-}
-
-Angajat& Angajat::operator=(const Angajat& b)
-{
-    if (this != &b)
-    {
-        Persoana::operator=(b);
-        Angajat temp(b);
-
-        std::swap(this->functie, temp.functie);
-        std::swap(this->salariu, temp.salariu);
-    }
-
-    return *this;
 }
 
 void Angajat::afiseaza(std::ostream& out) const

@@ -58,11 +58,18 @@ public:
     eroareAplicatie("Eroare CAMERA DUBLA: " + mesaj) {};
 };
 
-class eroarePreaMultiClienti : public eroareCameraDubla
+class eroarePreaMultiClienti : public eroareCamera
 {
 public:
     explicit eroarePreaMultiClienti(const std::string& mesaj) :
-    eroareCameraDubla("prea multi clienti: " + mesaj) {};
+    eroareCamera("prea multi clienti: " + mesaj) {};
+};
+
+class eroareCamereInsuficientDeMari : public eroareHotel
+{
+public:
+    explicit eroareCamereInsuficientDeMari(const std::string& mesaj) :
+    eroareHotel("camere insuficient de mari: " + mesaj) {};
 };
 
 #endif

@@ -17,23 +17,10 @@ public:
         ///
     }
 
-    void afiseaza(std::ostream& out) const override;
-
     Angajat(const Angajat& b) :
-            Persoana(b)
-    {
-        this->functie = b.functie;
-        this->salariu = b.salariu;
-    }
-
-    Angajat* cloneaza() const override
-    {
-        return new Angajat(*this);
-    }
-
+            Persoana(b), functie(b.functie), salariu(b.salariu) {}
 
     Angajat& operator=(const Angajat& b);
-
     friend std::istream& operator>>(std::istream& in, Angajat& a);
     friend std::ostream& operator<<(std::ostream& out, const Angajat& a);
 
@@ -47,15 +34,12 @@ public:
         return true;
     }
 
-    bool operator!=(const Angajat& b) const
-    {
-        return !Angajat::operator==(b);
-    }
+    bool operator!=(const Angajat& b) const { return !Angajat::operator==(b); }
 
-    ~Angajat()
-    {
+    Angajat* cloneaza() const override { return new Angajat(*this); }
+    void afiseaza(std::ostream& out) const override;
 
-    }
+    ~Angajat() {}
 };
 
 #endif

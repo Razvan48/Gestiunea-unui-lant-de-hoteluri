@@ -20,15 +20,7 @@ public:
         ///
     }
 
-    void afiseaza(std::ostream& out) const override;
-
-    Client* cloneaza() const override
-    {
-        return new Client(*this);
-    }
-
     Client& operator=(const Client& b);
-
     friend std::istream& operator>>(std::istream& in, Client& c);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
 
@@ -42,15 +34,12 @@ public:
         return true;
     }
 
-    bool operator!=(const Client& b) const
-    {
-        return !Client::operator==(b);
-    }
+    bool operator!=(const Client& b) const { return !Client::operator==(b); }
 
-    ~Client()
-    {
+    Client* cloneaza() const override { return new Client(*this); }
+    void afiseaza(std::ostream& out) const override;
 
-    }
+    ~Client() {}
 };
 
 #endif

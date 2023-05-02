@@ -1,5 +1,21 @@
 #include "../includes/cameraStandard.h"
 
+CameraStandard& CameraStandard::operator=(const CameraStandard& b)
+{
+    if (this != &b)
+    {
+        CameraStandard temp(b);
+
+        std::swap(this->numar, temp.numar);
+        std::swap(this->etaj, temp.etaj);
+        std::swap(this->rezervat, temp.rezervat);
+
+        std::swap(this->client, temp.client);
+    }
+
+    return *this;
+}
+
 std::istream& operator>>(std::istream& in, CameraStandard& c)
 {
     in >> c.numar >> c.etaj;
@@ -19,28 +35,6 @@ std::ostream& operator<<(std::ostream& out, const CameraStandard& c)
     return out;
 }
 
-CameraStandard& CameraStandard::operator=(const CameraStandard& b)
-{
-    if (this != &b)
-    {
-        CameraStandard temp(b);
-
-        std::swap(this->numar, temp.numar);
-        std::swap(this->etaj, temp.etaj);
-        std::swap(this->rezervat, temp.rezervat);
-
-        if (this->client != nullptr)
-            delete this->client;
-
-        if (temp.client != nullptr)
-            this->client = temp.client->cloneaza();
-        else
-            this->client = nullptr;
-    }
-
-    return *this;
-}
-
 void CameraStandard::afiseaza(std::ostream& out) const
 {
     out << "Camera standard " << this->numar << ", aflata la etajul " << this->etaj << ", care ";
@@ -49,4 +43,45 @@ void CameraStandard::afiseaza(std::ostream& out) const
         out << "nu ";
 
     out << "este rezervata" << '\n';
+}
+
+void CameraStandard::descriere(std::ostream& out) const
+{
+    out << "Aceasta este o camera standard." << '\n';
+}
+
+int CameraStandard::getPret() const
+{
+    return Camera::pret;
+}
+
+int CameraStandard::getCapacitate() const
+{
+    return Camera::capacitate;
+}
+
+void CameraStandard::rezerva(const std::vector<Client>& c) {
+    if (c.size() > 1)
+        throw eroarePreaMultiClienti("Camera Standard");
+
+    if (!this->rezervat)
+    {
+        this->rezervat = true;
+
+        if (!c.empty())
+            this->client = std::shared_ptr<Client>(c[0].cloneaza());
+        else
+            this->client = nullptr;
+
+        return;
+    }
+
+    std::cout << "Camera standard este deja rezervata!" << '\n';
+}
+
+void CameraStandard::elibereaza()
+{
+    this->rezervat = false;
+
+    this->client = nullptr;
 }

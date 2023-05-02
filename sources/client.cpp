@@ -1,5 +1,18 @@
 #include "../includes/client.h"
 
+Client& Client::operator=(const Client& b)
+{
+    if (this != &b)
+    {
+        Persoana::operator=(b);
+        Client temp(b);
+
+        ///
+    }
+
+    return *this;
+}
+
 std::istream& operator>>(std::istream& in, Client& c)
 {
     Persoana& p = c;
@@ -18,19 +31,6 @@ std::ostream& operator<<(std::ostream& out, const Client& c)
     ///
 
     return out;
-}
-
-Client& Client::operator=(const Client& b)
-{
-    if (this != &b)
-    {
-        Persoana::operator=(b);
-        Client temp(b);
-
-        ///
-    }
-
-    return *this;
 }
 
 void Client::afiseaza(std::ostream& out) const
