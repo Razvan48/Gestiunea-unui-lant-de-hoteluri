@@ -25,17 +25,6 @@ int Camera::getCapacitate() const
     return Camera::capacitate;
 }
 
-void Camera::rezerva(const std::vector<Client>& c)
-{
-    if (!this->rezervat)
-    {
-        this->rezervat = true;
-        return;
-    }
-
-    std::cout << "Camera este deja rezervata!" << '\n';
-}
-
 void Camera::elibereaza()
 {
     this->rezervat = false;

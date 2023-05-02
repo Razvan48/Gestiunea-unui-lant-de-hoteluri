@@ -65,16 +65,13 @@ void CameraDubla::rezerva(const std::vector<Client>& c)
 {
     if (c.size() > 2)
         throw eroarePreaMultiClienti("Camera Dubla");
+    if (c.empty())
+        throw eroareCameraRezervataDe0Clienti("Camera Dubla");
 
     if (!this->rezervat) {
         this->rezervat = true;
 
-        if (c.empty())
-        {
-            this->client0 = nullptr;
-            this->client1 = nullptr;
-        } 
-        else if (c.size() == 1)
+        if (c.size() == 1)
         {
             this->client0 = std::shared_ptr<Client>(c[0].cloneaza());
             this->client1 = nullptr;

@@ -60,18 +60,18 @@ int CameraStandard::getCapacitate() const
     return Camera::capacitate;
 }
 
-void CameraStandard::rezerva(const std::vector<Client>& c) {
+void CameraStandard::rezerva(const std::vector<Client>& c)
+{
     if (c.size() > 1)
         throw eroarePreaMultiClienti("Camera Standard");
+    if (c.empty())
+        throw eroareCameraRezervataDe0Clienti("Camera Standard");
 
     if (!this->rezervat)
     {
         this->rezervat = true;
 
-        if (!c.empty())
-            this->client = std::shared_ptr<Client>(c[0].cloneaza());
-        else
-            this->client = nullptr;
+        this->client = std::shared_ptr<Client>(c[0].cloneaza());
 
         return;
     }

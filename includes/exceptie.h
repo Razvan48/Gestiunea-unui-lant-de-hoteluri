@@ -72,4 +72,11 @@ public:
     eroareHotel("camere insuficient de mari: " + mesaj) {};
 };
 
+class eroareCameraRezervataDe0Clienti : public eroareCamera
+{
+public:
+    explicit eroareCameraRezervataDe0Clienti(const std::string& mesaj) :
+    eroareCamera("camera rezervata de 0 clienti: " + mesaj) {};
+};
+
 #endif
