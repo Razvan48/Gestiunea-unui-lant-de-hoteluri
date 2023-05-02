@@ -21,25 +21,33 @@ int main()
     //std::cout << h << '\n';
     out << h[0] << '\n';
 
-    CameraStandard c[5];
+    CameraStandard cs[5];
+    CameraDubla cd[10];
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; ++i)
     {
         //std::cin >> c[i];
-        in >> c[i];
-        h[0].adaugaCamera(c[i]);
+        in >> cs[i];
+        h[0].adaugaCamera(cs[i]);
     }
 
-    std::cout << c[4] << '\n';
-    std::cout << c[1] << '\n';
+    for (int i = 0; i < 5; ++i)
+    {
+        h[1].adaugaCamera(cd[i]);
+    }
+
+    std::cout << cs[4] << '\n';
+    std::cout << cs[1] << '\n';
+
+    std::cout << cs[4].getPret() << ' ' << cs[4].getCapacitate() << '\n';
 
     std::cout << h << '\n';
-    out << c[4] << '\n';
-    out << c[1] << '\n';
+    out << cs[4] << '\n';
+    out << cs[1] << '\n';
 
     out << h[0] << '\n';
 
-    h[0].elibereazaCamera(c[0].getNumar(), c[0].getEtaj());
+    h[0].elibereazaCamera(cs[0].getNumar(), cs[0].getEtaj());
 
     in >> h[1];
 
@@ -53,7 +61,7 @@ int main()
 
     h[1] = h[0];
 
-    c[2] = c[3];
+    cs[2] = cs[3];
     cli[2] = cli[3];
 
     Hotel hh(h[1]);
@@ -63,12 +71,12 @@ int main()
 
     for (int i = 0 ; i < 5; i++)
     {
-        h[0].elibereazaCamera(c[i].getNumar(), c[i].getEtaj());
+        h[0].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
     }
 
     for (int i = 0; i < 5; i++)
     {
-        h[1].elibereazaCamera(c[i].getNumar(), c[i].getEtaj());
+        h[1].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
     }
 
     Angajat a[10];

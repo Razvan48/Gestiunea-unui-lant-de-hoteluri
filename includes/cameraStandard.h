@@ -15,10 +15,10 @@ public:
 
     CameraStandard(const CameraStandard& b) : Camera(b)
     {
-        if (client == nullptr)
+        if (b.client == nullptr)
             this->client = nullptr;
         else
-            this->client = std::shared_ptr<Client>(client->cloneaza());
+            this->client = std::shared_ptr<Client>(b.client->cloneaza());
     }
 
     CameraStandard& operator=(const CameraStandard& b);

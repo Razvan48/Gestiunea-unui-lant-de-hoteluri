@@ -69,13 +69,18 @@ void CameraDubla::rezerva(const std::vector<Client>& c)
     if (!this->rezervat) {
         this->rezervat = true;
 
-        if (c.empty()) {
+        if (c.empty())
+        {
             this->client0 = nullptr;
             this->client1 = nullptr;
-        } else if (c.size() == 1) {
+        } 
+        else if (c.size() == 1)
+        {
             this->client0 = std::shared_ptr<Client>(c[0].cloneaza());
             this->client1 = nullptr;
-        } else {
+        }
+        else
+        {
             this->client0 = std::shared_ptr<Client>(c[0].cloneaza());
             this->client1 = std::shared_ptr<Client>(c[1].cloneaza());
         }
