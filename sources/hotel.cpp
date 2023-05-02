@@ -86,7 +86,7 @@ void Hotel::rezervaCamera(const std::vector<Client>& c)
 
     for (size_t i = 0; i < this->camere.size(); ++i)
     {
-        if (c.size() <= this->camere[i]->getCapacitate())
+        if ((int)c.size() <= this->camere[i]->getCapacitate())
             preaMultiClienti = false;
 
         if (!this->camere[i]->getRezervat())

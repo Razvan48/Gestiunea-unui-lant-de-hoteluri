@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
 
-#include "includes/Client.h"
-#include "includes/Angajat.h"
+#include "includes/client.h"
+#include "includes/angajat.h"
 
-#include "includes/CameraStandard.h"
+#include "includes/cameraStandard.h"
 #include "includes/cameraDubla.h"
 
 #include "includes/hotel.h"
