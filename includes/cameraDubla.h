@@ -37,8 +37,10 @@ public:
 
     void afiseaza(std::ostream& out) const override;
     void descriere(std::ostream& out) const override;
-    int getPret() const override;
-    int getCapacitate() const override;
+
+    static int getPret() { return 2 * Camera::pret; }
+    static int getCapacitate() { return 2 * Camera::capacitate; }
+
     void rezerva(const std::vector<Client>& c) override;
     void elibereaza() override;
 

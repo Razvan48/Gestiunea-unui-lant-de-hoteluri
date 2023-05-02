@@ -50,16 +50,6 @@ void CameraStandard::descriere(std::ostream& out) const
     out << "Aceasta este o camera standard." << '\n';
 }
 
-int CameraStandard::getPret() const
-{
-    return Camera::pret;
-}
-
-int CameraStandard::getCapacitate() const
-{
-    return Camera::capacitate;
-}
-
 void CameraStandard::rezerva(const std::vector<Client>& c)
 {
     if (c.size() > 1)

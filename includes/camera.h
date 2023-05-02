@@ -36,8 +36,10 @@ public:
     virtual Camera* cloneaza() const = 0;
     virtual void afiseaza(std::ostream& out) const = 0;
     virtual void descriere(std::ostream& out) const = 0;
-    virtual int getPret() const = 0;
-    virtual int getCapacitate() const = 0;
+
+    static int getPret() { return Camera::pret; };
+    static int getCapacitate() { return Camera::capacitate; };
+
     virtual void rezerva(const std::vector<Client>& c) = 0;
     virtual void elibereaza() = 0;
 

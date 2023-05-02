@@ -51,16 +51,6 @@ void CameraDubla::descriere(std::ostream& out) const
     out << "Aceasta este o camera dubla." << '\n';
 }
 
-int CameraDubla::getPret() const
-{
-    return 2 * Camera::pret;
-}
-
-int CameraDubla::getCapacitate() const
-{
-    return 2 * Camera::capacitate;
-}
-
 void CameraDubla::rezerva(const std::vector<Client>& c)
 {
     if (c.size() > 2)
