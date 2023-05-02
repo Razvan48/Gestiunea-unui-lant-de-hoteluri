@@ -24,6 +24,9 @@ int main()
     CameraStandard cs[5];
     CameraDubla cd[10];
 
+    cs[0].descriere(out);
+    cd[0].descriere(out);
+
     for (int i = 0; i < 5; ++i)
     {
         //std::cin >> c[i];
