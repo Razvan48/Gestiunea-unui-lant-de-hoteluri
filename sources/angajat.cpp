@@ -4,8 +4,11 @@ Angajat& Angajat::operator=(const Angajat& b)
 {
     if (this != &b)
     {
-        Persoana::operator=(b);
         Angajat temp(b);
+
+        std::swap(this->nume, temp.nume);
+        std::swap(this->prenume, temp.prenume);
+        std::swap(this->numarTelefon, temp.numarTelefon);
 
         std::swap(this->functie, temp.functie);
         std::swap(this->salariu, temp.salariu);
@@ -16,8 +19,7 @@ Angajat& Angajat::operator=(const Angajat& b)
 
 std::istream& operator>>(std::istream& in, Angajat& a)
 {
-    Persoana& p = a;
-    in >> p;
+    in >> a.nume >> a.prenume >> a.numarTelefon;
 
     in >> a.functie >> a.salariu;
 
