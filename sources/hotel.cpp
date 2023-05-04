@@ -149,5 +149,5 @@ void Hotel::concediaza(const Angajat& a)
         }
     }
 
-    throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
+    // throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
 }

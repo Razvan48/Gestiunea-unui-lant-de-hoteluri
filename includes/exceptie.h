@@ -93,12 +93,14 @@ public:
     eroareHotel("camera negasita: " + mesaj) {};
 };
 
+/*
 class eroareAngajatNegasit : public eroareHotel
 {
 public:
     explicit eroareAngajatNegasit(const std::string& mesaj) :
     eroareHotel("angajat negasit: " + mesaj) {};
 };
+*/
 
 class eroareAngajatDejaExistent : public eroareHotel
 {
