@@ -129,6 +129,7 @@ int main()
     try
     {
         h[1].angajeaza(a[0]);
+        h[0].concediaza(a[0]);
     }
     catch (const eroareAngajatNegasit& e)
     {
