@@ -109,38 +109,17 @@ int main()
 
     Hotel h3(h[1]);
 
-    try
-    {
-        h3.rezervaCamera(std::vector{cli[0]});
-        h[1].rezervaCamera(std::vector{cli[0]});
-    }
-    catch (const eroareHotel& e)
-    {
-        std::cout << e.what() << '\n';
-    }
+    h3.rezervaCamera(std::vector{cli[0]});
+    h[1].rezervaCamera(std::vector{cli[0]});
 
     for (int i = 0 ; i < 5; i++)
     {
-        try
-        {
-            h[0].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
-        }
-        catch (const eroareHotel& e)
-        {
-            std::cout << e.what() << '\n';
-        }
+        h[0].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
     }
 
     for (int i = 0; i < 5; i++)
     {
-        try
-        {
-            h[1].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
-        }
-        catch (const eroareHotel& e)
-        {
-            std::cout << e.what() << '\n';
-        }
+        h[1].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
     }
 
     Angajat a[10];
@@ -158,10 +137,6 @@ int main()
         std::cout << e.what() << '\n';
     }
     catch (const eroareAngajatDejaExistent& e)
-    {
-        std::cout << e.what() << '\n';
-    }
-    catch (const eroareHotel& e)
     {
         std::cout << e.what() << '\n';
     }
