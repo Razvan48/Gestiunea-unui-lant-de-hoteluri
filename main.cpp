@@ -104,7 +104,6 @@ int main()
     cli[2] = cli[3];
 
     out << cli[3] << '\n';
-    cli[3] = cli[3];
     out << cli[3] << '\n';
 
     Hotel h3(h[1]);
