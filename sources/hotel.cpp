@@ -133,10 +133,7 @@ void Hotel::angajeaza(const Angajat& a)
     if (!angajatDejaExistent)
         this->angajati.push_back(std::shared_ptr<Angajat>(a.cloneaza()));
     else
-    {
-        
-    }
-        //throw eroareAngajatDejaExistent("noul angajat nu a putut fi adaugat in cadrul unui hotel, deoarece acesta deja exista");
+        throw eroareAngajatDejaExistent("noul angajat nu a putut fi adaugat in cadrul unui hotel, deoarece acesta deja exista");
 }
 
 void Hotel::concediaza(const Angajat& a)
@@ -152,5 +149,5 @@ void Hotel::concediaza(const Angajat& a)
         }
     }
 
-    throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
+    //throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
 }
