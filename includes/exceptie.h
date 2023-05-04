@@ -79,4 +79,32 @@ public:
     eroareCamera("camera rezervata de 0 clienti: " + mesaj) {};
 };
 
+class eroareCameraDejaExistenta : public eroareHotel
+{
+public:
+    explicit eroareCameraDejaExistenta(const std::string& mesaj) :
+    eroareHotel("camera deja existenta: " + mesaj) {};
+};
+
+class eroareCameraNegasita : public eroareHotel
+{
+public:
+    explicit eroareCameraNegasita(const std::string& mesaj) :
+    eroareHotel("camera negasita: " + mesaj) {};
+};
+
+class eroareAngajatNegasit : public eroareHotel
+{
+public:
+    explicit eroareAngajatNegasit(const std::string& mesaj) :
+    eroareHotel("angajat negasit" + mesaj) {};
+};
+
+class eroareAngajatDejaExistent : public eroareHotel
+{
+public:
+    explicit eroareAngajatDejaExistent(const std::string& mesaj) :
+    eroareHotel("angajat deja existent" + mesaj) {};
+};
+
 #endif

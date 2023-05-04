@@ -61,7 +61,7 @@ void Hotel::adaugaCamera(Camera& c)
     if (!cameraDejaExistenta)
         this->camere.push_back(std::shared_ptr<Camera>(c.cloneaza()));
     else
-        std::cout << "Camera ce trebuia adaugata in cadrul hotelului deja exista!" << '\n';
+        throw eroareCameraDejaExistenta("camera ce trebuia adaugata in cadrul unui hotel deja exista");
 }
 
 void Hotel::eliminaCamera(Camera& c)
@@ -77,7 +77,7 @@ void Hotel::eliminaCamera(Camera& c)
         }
     }
 
-    std::cout << "Camera ce trebuia eliminata nu a fost gasita!" << '\n';
+    throw eroareCameraNegasita("camera ce trebuia eliminata din cadrul unui hotel nu a fost gasita");
 }
 
 void Hotel::rezervaCamera(const std::vector<Client>& c)
@@ -101,9 +101,9 @@ void Hotel::rezervaCamera(const std::vector<Client>& c)
     }
 
     if (preaMultiClienti)
-        throw eroareCamereInsuficientDeMari("nu s-au putut caza atat de multi clienti in aceeasi camere");
+        throw eroareCamereInsuficientDeMari("nu s-au putut caza atat de multi clienti in aceeasi camera");
 
-    std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n';
+    std::cout << "Hotelul nu poate oferi nicio camera in acest moment!" << '\n'; // Acesta ar fi doar un warning.
     return;
 }
 
@@ -115,14 +115,11 @@ void Hotel::elibereazaCamera(int numar, int etaj)
         {
             this->camere[i]->elibereaza();
 
-            std::cout << "Camera a fost eliberata cu succes!" << '\n';
-
             return;
         }
     }
 
-    std::cout << "Camera nu exista in cadrul hotelului!" << '\n';
-    return;
+    throw eroareCameraNegasita("camera ce trebuia eliberata in cadrul unui hotel nu a fost gasita");
 }
 
 void Hotel::angajeaza(const Angajat& a)
@@ -136,7 +133,7 @@ void Hotel::angajeaza(const Angajat& a)
     if (!angajatDejaExistent)
         this->angajati.push_back(std::shared_ptr<Angajat>(a.cloneaza()));
     else
-        std::cout << "Angajatul ce trebuia adaugat in cadrul hotelului deja exista!" << '\n';
+        throw eroareAngajatDejaExistent("noul angajat nu a putut fi adaugat in cadrul unui hotel, deoarece acesta deja exista");
 }
 
 void Hotel::concediaza(const Angajat& a)
@@ -152,5 +149,5 @@ void Hotel::concediaza(const Angajat& a)
         }
     }
 
-    std::cout << "Angajatul ce trebuia eliminat nu a fost gasit!" << '\n';
+    throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
 }

@@ -11,6 +11,13 @@
 
 int main()
 {
+
+
+
+    /// de refacut toate testarile din main
+
+
+
     std::ifstream in("input.txt");
     std::ofstream out("output.txt");
 

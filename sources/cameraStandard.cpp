@@ -47,7 +47,7 @@ void CameraStandard::afiseaza(std::ostream& out) const
 
 void CameraStandard::descriere(std::ostream& out) const
 {
-    out << "Aceasta este o camera standard." << '\n';
+    out << "Aceasta este o camera standard. Poate gazdui un singur client. Costul acestei camere este costul camerei de baza, adica " << this->getPret() << "." << '\n';
 }
 
 void CameraStandard::rezerva(const std::vector<Client>& c)

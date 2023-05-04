@@ -48,7 +48,7 @@ void CameraDubla::afiseaza(std::ostream& out) const
 
 void CameraDubla::descriere(std::ostream& out) const
 {
-    out << "Aceasta este o camera dubla." << '\n';
+    out << "Aceasta este o camera dubla. Poate gazdui simultan cel mult doi clienti. Costul acestei camere este de doua ori costul camerei de baza, adica " << this->getPret() << "." << '\n';
 }
 
 void CameraDubla::rezerva(const std::vector<Client>& c)

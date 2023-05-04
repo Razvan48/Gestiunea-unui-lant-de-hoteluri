@@ -54,6 +54,8 @@ public:
     friend std::istream& operator>>(std::istream& in, Hotel& h);
     friend std::ostream& operator<<(std::ostream& out, const Hotel& h);
 
+    std::string getNume() { return this->nume; } const
+
     friend void operator+=(Hotel& h, Camera& c) { h.adaugaCamera(c); }
     friend void operator-=(Hotel& h, Camera& c) { h.eliminaCamera(c); }
 

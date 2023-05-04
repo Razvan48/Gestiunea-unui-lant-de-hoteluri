@@ -12,7 +12,7 @@ void Camera::afiseaza(std::ostream& out) const
 
 void Camera::descriere(std::ostream& out) const
 {
-    out << "Aceasta este o camera." << '\n';
+    out << "Aceasta este o camera de baza. Costul acestei camere este de " << this->getPret() << "." << '\n';
 }
 
 void Camera::elibereaza()
