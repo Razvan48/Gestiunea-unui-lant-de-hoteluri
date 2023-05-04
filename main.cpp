@@ -14,7 +14,7 @@ int main()
 
 
 
-    /// de refacut toate testarile din main
+    /// de refacut tot codul din main
 
 
 
@@ -22,10 +22,8 @@ int main()
     std::ofstream out("output.txt");
 
     Hotel h[2];
-    //std::cin >> h;
     in >> h[0];
 
-    //std::cout << h << '\n';
     out << h[0] << '\n';
 
     CameraStandard cs[5];
@@ -36,14 +34,28 @@ int main()
 
     for (int i = 0; i < 5; ++i)
     {
-        //std::cin >> c[i];
         in >> cs[i];
-        h[0].adaugaCamera(cs[i]);
+
+        try
+        {
+            h[0].adaugaCamera(cs[i]);
+        }
+        catch (const eroareCameraDejaExistenta& e)
+        {
+            std::cout << e.what() << '\n';
+        }
     }
 
     for (int i = 0; i < 5; ++i)
     {
-        h[1].adaugaCamera(cd[i]);
+        try
+        {
+            h[1].adaugaCamera(cd[i]);
+        }
+        catch (const eroareCameraDejaExistenta& e)
+        {
+            std::cout << e.what() << '\n';
+        }
     }
 
     std::cout << cs[4] << '\n';
@@ -51,13 +63,20 @@ int main()
 
     std::cout << cs[4].getPret() << ' ' << cs[4].getCapacitate() << '\n';
 
-    std::cout << h << '\n';
+    std::cout << h[0] << '\n';
     out << cs[4] << '\n';
     out << cs[1] << '\n';
 
     out << h[0] << '\n';
 
-    h[0].elibereazaCamera(cs[0].getNumar(), cs[0].getEtaj());
+    try
+    {
+        h[0].elibereazaCamera(cs[0].getNumar(), cs[0].getEtaj());
+    }
+    catch (const eroareCameraNegasita& e)
+    {
+        std::cout << e.what() << '\n';
+    }
 
     in >> h[1];
 
@@ -66,7 +85,15 @@ int main()
     for (int i = 0; i < 7; i++)
     {
         in >> cli[i];
-        h[0].rezervaCamera(std::vector{cli[i]});
+
+        try
+        {
+            h[0].rezervaCamera(std::vector{cli[i]});
+        }
+        catch (const eroareCamereInsuficientDeMari& e)
+        {
+            std::cout << e.what() << '\n';
+        }
     }
 
     h[1] = h[0];
@@ -93,16 +120,34 @@ int main()
 
     a[0] = Angajat("Popescu", "Ion", "-", "receptionist", 4000);
 
-    h[1].angajeaza(a[0]);
-    h[0].concediaza(a[0]);
-    h[1].concediaza(a[0]);
+    try
+    {
+        h[1].angajeaza(a[0]);
+        h[0].concediaza(a[0]);
+        h[1].concediaza(a[0]);
+    }
+    catch (const eroareAngajatNegasit& e)
+    {
+        std::cout << e.what() << '\n';
+    }
 
     Angajat p[10];
     p[0] = Angajat("Popescu", "Pop", "-", "administrator", 5000);
 
-    h[1].angajeaza(p[0]);
-    h[1].concediaza(p[0]);
-    h[1].concediaza(p[0]);
+    try
+    {
+        h[1].angajeaza(p[0]);
+        h[1].concediaza(p[0]);
+        h[1].concediaza(p[0]);
+    }
+    catch (const eroareAngajatNegasit& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    catch (const eroareHotel& e)
+    {
+        std::cout << e.what() << '\n';
+    }
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();

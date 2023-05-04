@@ -97,14 +97,14 @@ class eroareAngajatNegasit : public eroareHotel
 {
 public:
     explicit eroareAngajatNegasit(const std::string& mesaj) :
-    eroareHotel("angajat negasit" + mesaj) {};
+    eroareHotel("angajat negasit: " + mesaj) {};
 };
 
 class eroareAngajatDejaExistent : public eroareHotel
 {
 public:
     explicit eroareAngajatDejaExistent(const std::string& mesaj) :
-    eroareHotel("angajat deja existent" + mesaj) {};
+    eroareHotel("angajat deja existent: " + mesaj) {};
 };
 
 #endif
