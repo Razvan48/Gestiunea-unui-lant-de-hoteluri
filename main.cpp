@@ -22,17 +22,17 @@ int main()
     std::ofstream out("output.txt");
 
     Hotel h[2];
-    in >> h[0];
+    in >> h[0] >> h[1];
 
-    out << h[0] << '\n';
+    out << h[0] << h[1] << '\n';
 
-    CameraStandard cs[5];
-    CameraDubla cd[10];
+    CameraStandard cs[10];
+    CameraDubla cd[5];
 
     cs[0].descriere(out);
     cd[0].descriere(out);
 
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 10; ++i)
     {
         in >> cs[i];
 
@@ -48,6 +48,8 @@ int main()
 
     for (int i = 0; i < 5; ++i)
     {
+        in >> cd[i];
+
         try
         {
             h[1].adaugaCamera(cd[i]);
@@ -101,19 +103,44 @@ int main()
     cs[2] = cs[3];
     cli[2] = cli[3];
 
-    Hotel hh(h[1]);
+    out << cli[3] << '\n';
+    cli[3] = cli[3];
+    out << cli[3] << '\n';
 
-    hh.rezervaCamera(std::vector{cli[0]});
-    h[1].rezervaCamera(std::vector{cli[0]});
+    Hotel h3(h[1]);
+
+    try
+    {
+        h3.rezervaCamera(std::vector{cli[0]});
+        h[1].rezervaCamera(std::vector{cli[0]});
+    }
+    catch (const eroareHotel& e)
+    {
+        std::cout << e.what() << '\n';
+    }
 
     for (int i = 0 ; i < 5; i++)
     {
-        h[0].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
+        try
+        {
+            h[0].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
+        }
+        catch (const eroareHotel& e)
+        {
+            std::cout << e.what() << '\n';
+        }
     }
 
     for (int i = 0; i < 5; i++)
     {
-        h[1].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
+        try
+        {
+            h[1].elibereazaCamera(cs[i].getNumar(), cs[i].getEtaj());
+        }
+        catch (const eroareHotel& e)
+        {
+            std::cout << e.what() << '\n';
+        }
     }
 
     Angajat a[10];
@@ -127,24 +154,6 @@ int main()
         h[1].concediaza(a[0]);
     }
     catch (const eroareAngajatNegasit& e)
-    {
-        std::cout << e.what() << '\n';
-    }
-
-    Angajat p[10];
-    p[0] = Angajat("Popescu", "Pop", "-", "administrator", 5000);
-
-    try
-    {
-        h[1].angajeaza(p[0]);
-        h[1].concediaza(p[0]);
-        h[1].concediaza(p[0]);
-    }
-    catch (const eroareAngajatNegasit& e)
-    {
-        std::cout << e.what() << '\n';
-    }
-    catch (const eroareHotel& e)
     {
         std::cout << e.what() << '\n';
     }
