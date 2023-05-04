@@ -104,6 +104,7 @@ int main()
     cli[2] = cli[3];
 
     out << cli[3] << '\n';
+    cli[3] = cli[3];
     out << cli[3] << '\n';
 
     Hotel h3(h[1]);
@@ -153,6 +154,14 @@ int main()
         h[1].concediaza(a[0]);
     }
     catch (const eroareAngajatNegasit& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    catch (const eroareAngajatDejaExistent& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    catch (const eroareHotel& e)
     {
         std::cout << e.what() << '\n';
     }
