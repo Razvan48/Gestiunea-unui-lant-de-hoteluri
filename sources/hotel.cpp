@@ -60,10 +60,18 @@ void Hotel::adaugaCamera(Camera& c)
 
     if (!cameraDejaExistenta)
     {
-        if (dynamic_cast<CameraStandard*>(&c))
+        CameraStandard* cs = dynamic_cast<CameraStandard*>(&c);
+        if (cs)
+        {
             ++this->numarCamereStandard;
-        else if (dynamic_cast<CameraDubla*>(&c))
+            this->capacitate += cs->getCapacitate();
+        }
+        CameraDubla* cd = dynamic_cast<CameraDubla*>(&c);
+        if (dynamic_cast<CameraDubla *>(cd))
+        {
             ++this->numarCamereDuble;
+            this->capacitate += cd->getCapacitate();
+        }
 
         this->camere.push_back(std::shared_ptr<Camera>(c.cloneaza()));
     }
@@ -77,6 +85,19 @@ void Hotel::eliminaCamera(Camera& c)
     {
         if (this->camere[i]->getNumar() == c.getNumar() && this->camere[i]->getEtaj() == c.getEtaj())
         {
+            CameraStandard* cs = dynamic_cast<CameraStandard*>(&c);
+            if (cs)
+            {
+                --this->numarCamereStandard;
+                this->capacitate -= cs->getCapacitate();
+            }
+            CameraDubla* cd = dynamic_cast<CameraDubla*>(&c);
+            if (dynamic_cast<CameraDubla *>(cd))
+            {
+                --this->numarCamereDuble;
+                this->capacitate -= cd->getCapacitate();
+            }
+
             std::swap(this->camere[i], this->camere.back());
             this->camere.pop_back();
 

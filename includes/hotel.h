@@ -32,9 +32,11 @@ private:
     int numarCamereStandard;
     int numarCamereDuble;
 
+    int capacitate;
+
 public:
     Hotel(const std::string& nume = "-", int nrStele = -1) :
-        nume(nume), nrStele(nrStele), numarCamereStandard(0), numarCamereDuble(0) {}
+        nume(nume), nrStele(nrStele), numarCamereStandard(0), numarCamereDuble(0), capacitate(0) {}
 
     Hotel(const Hotel& b) : nume(b.nume), nrStele(b.nrStele)
     {
@@ -60,6 +62,8 @@ public:
 
     friend void operator+=(Hotel& h, Camera& c) { h.adaugaCamera(c); }
     friend void operator-=(Hotel& h, Camera& c) { h.eliminaCamera(c); }
+
+    int getCapacitate() const { return this->capacitate; }
 
     void adaugaCamera(Camera& c);
     void eliminaCamera(Camera& c);
