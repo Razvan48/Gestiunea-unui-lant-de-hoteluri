@@ -109,4 +109,25 @@ public:
     eroareHotel("angajat deja existent: " + mesaj) {};
 };
 
+class eroareLantDeHoteluri : public eroareAplicatie
+{
+public:
+    explicit eroareLantDeHoteluri(const std::string& mesaj) :
+    eroareAplicatie("Eroare LANT DE HOTELURI: " + mesaj) {}
+};
+
+class eroareHotelDejaExistent : public eroareLantDeHoteluri
+{
+public:
+    explicit eroareHotelDejaExistent(const std::string& mesaj) :
+    eroareLantDeHoteluri("hotel deja existent: " + mesaj) {};
+};
+
+class eroareHotelNegasit : public eroareLantDeHoteluri
+{
+public:
+    explicit eroareHotelNegasit(const std::string& mesaj) :
+    eroareLantDeHoteluri("hotel negasit: " + mesaj) {};
+};
+
 #endif

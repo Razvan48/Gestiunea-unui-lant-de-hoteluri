@@ -63,7 +63,12 @@ public:
     friend void operator+=(Hotel& h, Camera& c) { h.adaugaCamera(c); }
     friend void operator-=(Hotel& h, Camera& c) { h.eliminaCamera(c); }
 
+    std::string getNume() const { return this->nume; }
+    int getNrStele() const { return this->nrStele; }
+
     int getCapacitate() const { return this->capacitate; }
+
+    Hotel* cloneaza() const { return new Hotel(*this); }
 
     void adaugaCamera(Camera& c);
     void eliminaCamera(Camera& c);

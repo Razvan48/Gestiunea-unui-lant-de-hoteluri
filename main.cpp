@@ -9,6 +9,8 @@
 
 #include "includes/hotel.h"
 
+#include "includes/lantDeHoteluri.h"
+
 int main()
 {
 
@@ -147,8 +149,37 @@ int main()
         std::cout << e.what() << '\n';
     }
 
+    LantDeHoteluri::getInstanta().adaugaHotel(h[0]);
+    //LantDeHoteluri::getInstanta().adaugaHotel(h[1]);
+
+    /*
+    try
+    {
+        LantDeHoteluri::getInstanta().adaugaHotel(h[0]);
+    }
+    catch (const eroareHotelDejaExistent& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    */
+
+    LantDeHoteluri::getInstanta().eliminaHotel(h[0]);
+
+    /*
+    try
+    {
+        LantDeHoteluri::getInstanta().eliminaHotel(h[0]);
+    }
+    catch (const eroareHotelNegasit& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+     */
+
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
+
+    LantDeHoteluri::getInstanta().stergeInstanta();
 
     in.close();
     out.close();
