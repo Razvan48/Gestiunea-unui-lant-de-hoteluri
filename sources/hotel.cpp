@@ -59,7 +59,14 @@ void Hotel::adaugaCamera(Camera& c)
             cameraDejaExistenta = true;
 
     if (!cameraDejaExistenta)
+    {
+        if (dynamic_cast<CameraStandard*>(&c))
+            ++this->numarCamereStandard;
+        else if (dynamic_cast<CameraDubla*>(&c))
+            ++this->numarCamereDuble;
+
         this->camere.push_back(std::shared_ptr<Camera>(c.cloneaza()));
+    }
     else
         throw eroareCameraDejaExistenta("camera ce trebuia adaugata in cadrul unui hotel deja exista");
 }

@@ -29,8 +29,12 @@ private:
     std::vector<std::shared_ptr<Camera>> camere;
     std::vector<std::shared_ptr<Angajat>> angajati;
 
+    int numarCamereStandard;
+    int numarCamereDuble;
+
 public:
-    Hotel(const std::string& nume = "-", int nrStele = -1) : nume(nume), nrStele(nrStele) {}
+    Hotel(const std::string& nume = "-", int nrStele = -1) :
+        nume(nume), nrStele(nrStele), numarCamereStandard(0), numarCamereDuble(0) {}
 
     Hotel(const Hotel& b) : nume(b.nume), nrStele(b.nrStele)
     {
@@ -53,6 +57,8 @@ public:
     Hotel& operator=(const Hotel& b);
     friend std::istream& operator>>(std::istream& in, Hotel& h);
     friend std::ostream& operator<<(std::ostream& out, const Hotel& h);
+
+    int getCapacitate() const { return 1 * this->numarCamereStandard + 2 * this->numarCamereDuble; }
 
     friend void operator+=(Hotel& h, Camera& c) { h.adaugaCamera(c); }
     friend void operator-=(Hotel& h, Camera& c) { h.eliminaCamera(c); }
