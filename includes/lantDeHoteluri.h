@@ -37,8 +37,8 @@ public:
         return *(LantDeHoteluri::instanta);
     }
 
-    void adaugaHotel(Hotel& h);
-    void eliminaHotel(Hotel& h);
+    void adaugaHotel(const Hotel& h);
+    void eliminaHotel(const Hotel& h);
 
     static void stergeInstanta()
     {

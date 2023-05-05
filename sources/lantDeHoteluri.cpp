@@ -2,7 +2,7 @@
 
 LantDeHoteluri* LantDeHoteluri::instanta = nullptr;
 
-void LantDeHoteluri::adaugaHotel(Hotel& h)
+void LantDeHoteluri::adaugaHotel(const Hotel& h)
 {
     bool hotelDejaExistent = false;
 
@@ -16,7 +16,7 @@ void LantDeHoteluri::adaugaHotel(Hotel& h)
         throw eroareHotelDejaExistent("hotelul ce trebuia adaugat in cadrul lantului de hoteluri deja exista");
 }
 
-void LantDeHoteluri::eliminaHotel(Hotel& h)
+void LantDeHoteluri::eliminaHotel(const Hotel& h)
 {
     for (size_t i = 0; i < this->hoteluri.size(); ++i)
     {
