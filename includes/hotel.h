@@ -58,8 +58,6 @@ public:
     friend std::istream& operator>>(std::istream& in, Hotel& h);
     friend std::ostream& operator<<(std::ostream& out, const Hotel& h);
 
-    int getCapacitate() const { return 1 * this->numarCamereStandard + 2 * this->numarCamereDuble; }
-
     friend void operator+=(Hotel& h, Camera& c) { h.adaugaCamera(c); }
     friend void operator-=(Hotel& h, Camera& c) { h.eliminaCamera(c); }
 

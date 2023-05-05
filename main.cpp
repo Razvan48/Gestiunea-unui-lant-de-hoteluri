@@ -46,9 +46,6 @@ int main()
         }
     }
 
-    std::cout << "Capacitate hotel" << '\n';
-    std::cout << h[0].getCapacitate() << '\n';
-
     for (int i = 0; i < 5; ++i)
     {
         in >> cd[i];
@@ -62,9 +59,6 @@ int main()
             std::cout << e.what() << '\n';
         }
     }
-
-    std::cout << "Capacitate hotel" << '\n';
-    std::cout << h[1].getCapacitate() << '\n';
 
     std::cout << cs[4] << '\n';
     std::cout << cs[1] << '\n';
