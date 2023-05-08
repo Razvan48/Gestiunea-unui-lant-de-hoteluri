@@ -2,6 +2,7 @@
 #define CAMERADUBLA_H
 
 #include <vector>
+#include <array>
 
 #include "camera.h"
 
@@ -9,24 +10,23 @@ class CameraDubla : public Camera // Camera dubla poate gazdui maxim doi clienti
 {
 private:
 
-    std::shared_ptr<Client> client0;
-    std::shared_ptr<Client> client1;
+    std::array<std::shared_ptr<Client>, 2>clienti;
 
 public:
 
-    CameraDubla(int numar = -1, int etaj = -1) : Camera(numar, etaj), client0(nullptr), client1(nullptr) {}
+    CameraDubla(int numar = -1, int etaj = -1) : Camera(numar, etaj), clienti{nullptr, nullptr} {}
 
     CameraDubla(const CameraDubla& b) : Camera(b)
     {
-        if (b.client0 != nullptr)
-            this->client0 = std::shared_ptr<Client>(b.client0->cloneaza());
+        if (b.clienti[0] != nullptr)
+            this->clienti[0] = std::shared_ptr<Client>(b.clienti[0]->cloneaza());
         else
-            this->client0 = nullptr;
+            this->clienti[0] = nullptr;
 
-        if (b.client1 != nullptr)
-            this->client1 = std::shared_ptr<Client>(b.client1->cloneaza());
+        if (b.clienti[1] != nullptr)
+            this->clienti[1] = std::shared_ptr<Client>(b.clienti[1]->cloneaza());
         else
-            this->client1 = nullptr;
+            this->clienti[1] = nullptr;
     }
 
     CameraDubla& operator=(const CameraDubla& b);

@@ -10,8 +10,8 @@ CameraDubla& CameraDubla::operator=(const CameraDubla& b)
         std::swap(this->etaj, temp.etaj);
         std::swap(this->rezervat, temp.rezervat);
 
-        std::swap(this->client0, temp.client0);
-        std::swap(this->client1, temp.client1);
+        std::swap(this->clienti[0], temp.clienti[0]);
+        std::swap(this->clienti[1], temp.clienti[1]);
     }
 
     return *this;
@@ -63,13 +63,13 @@ void CameraDubla::rezerva(const std::vector<Client>& c)
 
         if (c.size() == 1)
         {
-            this->client0 = std::shared_ptr<Client>(c[0].cloneaza());
-            this->client1 = nullptr;
+            this->clienti[0] = std::shared_ptr<Client>(c[0].cloneaza());
+            this->clienti[1] = nullptr;
         }
         else
         {
-            this->client0 = std::shared_ptr<Client>(c[0].cloneaza());
-            this->client1 = std::shared_ptr<Client>(c[1].cloneaza());
+            this->clienti[0] = std::shared_ptr<Client>(c[0].cloneaza());
+            this->clienti[1] = std::shared_ptr<Client>(c[1].cloneaza());
         }
 
         return;
@@ -82,6 +82,6 @@ void CameraDubla::elibereaza()
 {
     this->rezervat = false;
 
-    this->client0 = nullptr;
-    this->client1 = nullptr;
+    this->clienti[0] = nullptr;
+    this->clienti[1] = nullptr;
 }

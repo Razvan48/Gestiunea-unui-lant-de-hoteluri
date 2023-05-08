@@ -1,7 +1,5 @@
 #include "../includes/lantDeHoteluri.h"
 
-LantDeHoteluri* LantDeHoteluri::instanta = nullptr;
-
 void LantDeHoteluri::adaugaHotel(const Hotel& h)
 {
     bool hotelDejaExistent = false;

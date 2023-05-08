@@ -179,8 +179,6 @@ int main()
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
 
-    LantDeHoteluri::getInstanta().stergeInstanta();
-
     in.close();
     out.close();
 
