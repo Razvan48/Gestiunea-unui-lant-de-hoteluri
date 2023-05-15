@@ -104,6 +104,8 @@ int main()
         }
     }
 
+    out << cli[0].getNume() << ' ' << cli[0].getPrenume() << ' ' << cli[0].getNumarTelefon() << '\n';
+
     h[1] = h[0];
 
     cs[2] = cs[3];
