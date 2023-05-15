@@ -159,7 +159,7 @@ void Hotel::angajeaza(const Angajat& a)
             angajatDejaExistent = true;
 
     if (!angajatDejaExistent)
-        this->angajati.push_back(std::shared_ptr<Angajat>(a.cloneaza()));
+        this->angajati.push_back(std::dynamic_pointer_cast<Angajat>(a.cloneaza()));
     else
         throw eroareAngajatDejaExistent("noul angajat nu a putut fi adaugat in cadrul unui hotel, deoarece acesta deja exista");
 }

@@ -61,7 +61,7 @@ void CameraStandard::rezerva(const std::vector<Client>& c)
     {
         this->rezervat = true;
 
-        this->client = std::shared_ptr<Client>(c[0].cloneaza());
+        this->client = std::dynamic_pointer_cast<Client>(c[0].cloneaza());
 
         return;
     }

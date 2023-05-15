@@ -7,6 +7,8 @@
 #include <istream>
 #include <ostream>
 
+#include <memory>
+
 #include "exceptie.h"
 
 class Persoana
@@ -40,7 +42,7 @@ public:
     std::string getPrenume() const { return this->prenume; };
     std::string getNumarTelefon() const { return this->numarTelefon; }
 
-    virtual Persoana* cloneaza() const = 0;
+    virtual std::shared_ptr<Persoana> cloneaza() const = 0;
     virtual void afiseaza(std::ostream& out) const = 0;
 
     virtual ~Persoana() {}

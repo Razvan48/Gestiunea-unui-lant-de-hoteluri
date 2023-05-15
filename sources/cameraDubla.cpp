@@ -63,13 +63,13 @@ void CameraDubla::rezerva(const std::vector<Client>& c)
 
         if (c.size() == 1)
         {
-            this->clienti[0] = std::shared_ptr<Client>(c[0].cloneaza());
+            this->clienti[0] = std::dynamic_pointer_cast<Client>(c[0].cloneaza());
             this->clienti[1] = nullptr;
         }
         else
         {
-            this->clienti[0] = std::shared_ptr<Client>(c[0].cloneaza());
-            this->clienti[1] = std::shared_ptr<Client>(c[1].cloneaza());
+            this->clienti[0] = std::dynamic_pointer_cast<Client>(c[0].cloneaza());
+            this->clienti[1] = std::dynamic_pointer_cast<Client>(c[1].cloneaza());
         }
 
         return;

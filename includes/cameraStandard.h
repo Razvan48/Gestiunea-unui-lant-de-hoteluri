@@ -18,14 +18,14 @@ public:
         if (b.client == nullptr)
             this->client = nullptr;
         else
-            this->client = std::shared_ptr<Client>(b.client->cloneaza());
+            this->client = std::dynamic_pointer_cast<Client>(b.client->cloneaza());
     }
 
     CameraStandard& operator=(const CameraStandard& b);
     friend std::istream& operator>>(std::istream& in, CameraStandard& obj);
     friend std::ostream& operator<<(std::ostream& out, const CameraStandard& obj);
 
-    CameraStandard* cloneaza() const override { return new CameraStandard(*this); }
+    std::shared_ptr<Camera> cloneaza() const override { return std::make_shared<CameraStandard>(*this); }
 
     void afiseaza(std::ostream& out) const override;
     void descriere(std::ostream& out) const override;

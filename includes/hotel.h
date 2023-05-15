@@ -43,14 +43,14 @@ public:
         for (size_t i = 0; i < b.camere.size(); ++i)
         {
             if (b.camere[i] != nullptr)
-                this->camere.push_back(std::shared_ptr<Camera>(b.camere[i]->cloneaza()));
+                this->camere.push_back(b.camere[i]->cloneaza());
             else
                 this->camere.push_back(nullptr);
         }
         for (size_t i = 0; i < b.angajati.size(); ++i)
         {
             if (b.angajati[i] != nullptr)
-                this->angajati.push_back(std::shared_ptr<Angajat>(b.angajati[i]->cloneaza()));
+                this->angajati.push_back(std::dynamic_pointer_cast<Angajat>(b.angajati[i]->cloneaza()));
             else
                 this->angajati.push_back(nullptr);
         }
@@ -68,7 +68,7 @@ public:
 
     int getCapacitate() const { return this->capacitate; }
 
-    Hotel* cloneaza() const { return new Hotel(*this); }
+    std::shared_ptr<Hotel> cloneaza() const { return std::make_shared<Hotel>(*this); }
 
     void adaugaCamera(Camera& c);
     void eliminaCamera(Camera& c);

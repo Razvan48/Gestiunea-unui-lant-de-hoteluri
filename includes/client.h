@@ -36,7 +36,7 @@ public:
 
     bool operator!=(const Client& b) const { return !Client::operator==(b); }
 
-    Client* cloneaza() const override { return new Client(*this); }
+    std::shared_ptr<Persoana> cloneaza() const override { return std::make_shared<Client>(*this); }
     void afiseaza(std::ostream& out) const override;
 
     ~Client() {}
