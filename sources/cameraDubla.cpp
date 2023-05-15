@@ -1,5 +1,23 @@
 #include "../includes/cameraDubla.h"
 
+CameraDubla::CameraDubla(int numar, int etaj) : Camera(numar, etaj), clienti{nullptr, nullptr}
+{
+
+}
+
+CameraDubla::CameraDubla(const CameraDubla& b) : Camera(b)
+{
+    if (b.clienti[0] != nullptr)
+        this->clienti[0] = std::dynamic_pointer_cast<Client>(b.clienti[0]->cloneaza());
+    else
+        this->clienti[0] = nullptr;
+
+    if (b.clienti[1] != nullptr)
+        this->clienti[1] = std::dynamic_pointer_cast<Client>(b.clienti[1]->cloneaza());
+    else
+        this->clienti[1] = nullptr;
+}
+
 CameraDubla& CameraDubla::operator=(const CameraDubla& b)
 {
     if (this != &b)
@@ -33,6 +51,11 @@ std::ostream& operator<<(std::ostream& out, const CameraDubla& c)
     return out;
 }
 
+std::shared_ptr<Camera> CameraDubla::cloneaza() const
+{
+    return std::make_shared<CameraDubla>(*this);
+}
+
 void CameraDubla::afiseaza(std::ostream& out) const
 {
     out << "Camera dubla " << this->numar << ", aflata la etajul " << this->etaj << ", care ";
@@ -46,6 +69,16 @@ void CameraDubla::afiseaza(std::ostream& out) const
 void CameraDubla::descriere(std::ostream& out) const
 {
     out << "Aceasta este o camera dubla. Poate gazdui simultan cel mult doi clienti. Costul acestei camere este de doua ori costul camerei de baza, adica " << this->getPret() << "." << '\n';
+}
+
+int CameraDubla::getPret()
+{
+    return 2 * Camera::pret;
+}
+
+int CameraDubla::getCapacitate()
+{
+    return 2 * Camera::capacitate;
 }
 
 void CameraDubla::rezerva(const std::vector<Client>& c)

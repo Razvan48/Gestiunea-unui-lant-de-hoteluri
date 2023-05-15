@@ -1,8 +1,9 @@
 #ifndef EXCEPTIE_H
 #define EXCEPTIE_H
 
-#include <stdexcept>
 #include <string>
+
+#include <stdexcept>
 
 class eroareAplicatie : public std::runtime_error
 {

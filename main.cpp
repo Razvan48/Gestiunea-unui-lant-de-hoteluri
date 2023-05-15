@@ -14,8 +14,6 @@
 int main()
 {
 
-
-
     /// de refacut tot codul din main
 
 
@@ -138,12 +136,12 @@ int main()
         h[1].angajeaza(a[0]);
         h[0].concediaza(a[0]);
     }
-    /*
-    catch (const eroareAngajatNegasit& e)
-    {
-        std::cout << e.what() << '\n';
-    }
-    */
+        /*
+        catch (const eroareAngajatNegasit& e)
+        {
+            std::cout << e.what() << '\n';
+        }
+        */
     catch (const eroareAngajatDejaExistent& e)
     {
         std::cout << e.what() << '\n';
@@ -176,8 +174,6 @@ int main()
     }
      */
 
-    
-
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
 
@@ -186,3 +182,4 @@ int main()
 
     return 0;
 }
+

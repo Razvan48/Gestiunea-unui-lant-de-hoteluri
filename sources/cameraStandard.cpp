@@ -1,5 +1,18 @@
 #include "../includes/cameraStandard.h"
 
+CameraStandard::CameraStandard(int numar, int etaj) : Camera(numar, etaj), client(nullptr)
+{
+
+}
+
+CameraStandard::CameraStandard(const CameraStandard& b) : Camera(b)
+{
+    if (b.client == nullptr)
+        this->client = nullptr;
+    else
+        this->client = std::dynamic_pointer_cast<Client>(b.client->cloneaza());
+}
+
 CameraStandard& CameraStandard::operator=(const CameraStandard& b)
 {
     if (this != &b)
@@ -32,6 +45,11 @@ std::ostream& operator<<(std::ostream& out, const CameraStandard& c)
     return out;
 }
 
+std::shared_ptr<Camera> CameraStandard::cloneaza() const
+{
+    return std::make_shared<CameraStandard>(*this);
+}
+
 void CameraStandard::afiseaza(std::ostream& out) const
 {
     out << "Camera standard " << this->numar << ", aflata la etajul " << this->etaj << ", care ";
@@ -45,6 +63,16 @@ void CameraStandard::afiseaza(std::ostream& out) const
 void CameraStandard::descriere(std::ostream& out) const
 {
     out << "Aceasta este o camera standard. Poate gazdui un singur client. Costul acestei camere este costul camerei de baza, adica " << this->getPret() << "." << '\n';
+}
+
+int CameraStandard::getPret()
+{
+    return Camera::pret;
+}
+
+int CameraStandard::getCapacitate()
+{
+    return Camera::capacitate;
 }
 
 void CameraStandard::rezerva(const std::vector<Client>& c)

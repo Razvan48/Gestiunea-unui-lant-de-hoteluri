@@ -1,5 +1,15 @@
 #include "../includes/camera.h"
 
+Camera::Camera(int numar, int etaj) : numar(numar), etaj(etaj), rezervat(false)
+{
+
+}
+
+Camera::Camera(const Camera& b) : numar(b.numar), etaj(b.etaj), rezervat(b.rezervat)
+{
+
+}
+
 Camera& Camera::operator=(const Camera& b)
 {
     if (this != &b)
@@ -33,7 +43,37 @@ void Camera::descriere(std::ostream& out) const
     out << "Aceasta este o camera de baza. Costul acestei camere este de " << this->getPret() << "." << '\n';
 }
 
+int Camera::getPret()
+{
+    return Camera::pret;
+};
+
+int Camera::getCapacitate()
+{
+    return Camera::capacitate;
+};
+
 void Camera::elibereaza()
 {
     this->rezervat = false;
+}
+
+int Camera::getNumar() const
+{
+    return this->numar;
+}
+
+int Camera::getEtaj() const
+{
+    return this->etaj;
+}
+
+bool Camera::getRezervat() const
+{
+    return this->rezervat;
+}
+
+Camera::~Camera()
+{
+
 }

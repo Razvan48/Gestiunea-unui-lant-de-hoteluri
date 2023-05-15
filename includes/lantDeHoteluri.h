@@ -17,9 +17,7 @@ private:
 private:
 
     LantDeHoteluri() {}
-
     ~LantDeHoteluri() {};
-
     LantDeHoteluri(const LantDeHoteluri& b)             = delete;
     LantDeHoteluri& operator=(const LantDeHoteluri& b)  = delete;
     LantDeHoteluri(const LantDeHoteluri&& b)            = delete;
@@ -27,13 +25,7 @@ private:
 
 public:
 
-    static LantDeHoteluri& getInstanta()
-    {
-        static LantDeHoteluri instanta;
-
-        return instanta;
-    }
-
+    static LantDeHoteluri& getInstanta();
     void adaugaHotel(const Hotel& h);
     void eliminaHotel(const Hotel& h);
 };

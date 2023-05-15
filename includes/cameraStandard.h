@@ -11,32 +11,18 @@ private:
 
 public:
 
-    CameraStandard(int numar = -1, int etaj = -1) : Camera(numar, etaj), client(nullptr) {};
-
-    CameraStandard(const CameraStandard& b) : Camera(b)
-    {
-        if (b.client == nullptr)
-            this->client = nullptr;
-        else
-            this->client = std::dynamic_pointer_cast<Client>(b.client->cloneaza());
-    }
-
+    CameraStandard(int numar = -1, int etaj = -1);
+    CameraStandard(const CameraStandard& b);
     CameraStandard& operator=(const CameraStandard& b);
     friend std::istream& operator>>(std::istream& in, CameraStandard& obj);
     friend std::ostream& operator<<(std::ostream& out, const CameraStandard& obj);
-
-    std::shared_ptr<Camera> cloneaza() const override { return std::make_shared<CameraStandard>(*this); }
-
+    std::shared_ptr<Camera> cloneaza() const override;
     void afiseaza(std::ostream& out) const override;
     void descriere(std::ostream& out) const override;
-
-    static int getPret() { return Camera::pret; }
-    static int getCapacitate() { return Camera::capacitate; }
-
+    static int getPret();
+    static int getCapacitate();
     void rezerva(const std::vector<Client>& c) override;
     void elibereaza() override;
-
-    ~CameraStandard() {}
 };
 
 #endif

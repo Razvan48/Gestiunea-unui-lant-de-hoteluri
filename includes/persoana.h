@@ -23,30 +23,19 @@ protected:
 
 public:
 
-    Persoana(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-") :
-            nume(nume), prenume(prenume), numarTelefon(numarTelefon) {}
-
-    Persoana(const Persoana& b) : nume(b.nume), prenume(b.prenume), numarTelefon(b.numarTelefon) {}
-
+    Persoana(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-");
+    Persoana(const Persoana& b);
     Persoana& operator=(const Persoana& b);
     friend std::istream& operator>>(std::istream& in, Persoana& p);
     friend std::ostream& operator<<(std::ostream& out, const Persoana& p);
-
-    bool operator==(const Persoana& b) const
-    {
-        return this->nume == b.nume && this->prenume == b.prenume && this->numarTelefon == b.numarTelefon;
-    }
-
-    bool operator!=(const Persoana& b) const { return !Persoana::operator==(b); }
-
-    std::string getNume() const { return this->nume; }
-    std::string getPrenume() const { return this->prenume; };
-    std::string getNumarTelefon() const { return this->numarTelefon; }
-
+    bool operator==(const Persoana& b) const;
+    bool operator!=(const Persoana& b) const;
+    std::string getNume() const;
+    std::string getPrenume() const;
+    std::string getNumarTelefon() const;
     virtual std::shared_ptr<Persoana> cloneaza() const = 0;
     virtual void afiseaza(std::ostream& out) const = 0;
-
-    virtual ~Persoana() {}
+    virtual ~Persoana();
 };
 
 #endif

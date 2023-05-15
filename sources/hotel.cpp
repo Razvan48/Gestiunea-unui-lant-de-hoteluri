@@ -1,5 +1,29 @@
 #include "../includes/hotel.h"
 
+Hotel::Hotel(const std::string& nume, int nrStele) :
+        nume(nume), nrStele(nrStele), numarCamereStandard(0), numarCamereDuble(0), capacitate(0)
+{
+
+}
+
+Hotel::Hotel(const Hotel& b) : nume(b.nume), nrStele(b.nrStele)
+{
+    for (size_t i = 0; i < b.camere.size(); ++i)
+    {
+        if (b.camere[i] != nullptr)
+            this->camere.push_back(b.camere[i]->cloneaza());
+        else
+            this->camere.push_back(nullptr);
+    }
+    for (size_t i = 0; i < b.angajati.size(); ++i)
+    {
+        if (b.angajati[i] != nullptr)
+            this->angajati.push_back(std::dynamic_pointer_cast<Angajat>(b.angajati[i]->cloneaza()));
+        else
+            this->angajati.push_back(nullptr);
+    }
+}
+
 Hotel& Hotel::operator=(const Hotel& b)
 {
     if (this != &b)
@@ -48,6 +72,36 @@ std::ostream& operator<<(std::ostream& out, const Hotel& h)
     }
 
     return out;
+}
+
+void operator+=(Hotel& h, Camera& c)
+{
+        h.adaugaCamera(c);
+}
+
+void operator-=(Hotel& h, Camera& c)
+{
+    h.eliminaCamera(c);
+}
+
+std::string Hotel::getNume() const
+{
+    return this->nume;
+}
+
+int Hotel::getNrStele() const
+{
+    return this->nrStele;
+}
+
+int Hotel::getCapacitate() const
+{
+    return this->capacitate;
+}
+
+std::shared_ptr<Hotel> Hotel::cloneaza() const
+{
+    return std::make_shared<Hotel>(*this);
 }
 
 void Hotel::adaugaCamera(Camera& c)

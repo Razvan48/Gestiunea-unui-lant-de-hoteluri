@@ -1,5 +1,12 @@
 #include "../includes/lantDeHoteluri.h"
 
+LantDeHoteluri& LantDeHoteluri::getInstanta()
+{
+    static LantDeHoteluri instanta;
+
+    return instanta;
+}
+
 void LantDeHoteluri::adaugaHotel(const Hotel& h)
 {
     bool hotelDejaExistent = false;
@@ -29,3 +36,5 @@ void LantDeHoteluri::eliminaHotel(const Hotel& h)
 
     throw eroareHotelNegasit("hotelul ce trebuia eliminat din cadrul lantului de hoteluri nu a fost gasit");
 }
+
+

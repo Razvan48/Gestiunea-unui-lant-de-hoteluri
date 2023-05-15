@@ -8,38 +8,16 @@ class Client : public Persoana
 private:
 
 public:
-    Client(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-") :
-        Persoana(nume, prenume, numarTelefon)
-    {
-        ///
-    }
 
-    Client(const Client& b) :
-        Persoana(b)
-    {
-        ///
-    }
-
+    Client(const std::string& nume = "-", const std::string& prenume = "-", const std::string& numarTelefon = "-");
+    Client(const Client& b);
     Client& operator=(const Client& b);
     friend std::istream& operator>>(std::istream& in, Client& c);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
-
-    bool operator==(const Client& b) const
-    {
-        if (!Persoana::operator==(b))
-            return false;
-
-        ///
-
-        return true;
-    }
-
-    bool operator!=(const Client& b) const { return !Client::operator==(b); }
-
-    std::shared_ptr<Persoana> cloneaza() const override { return std::make_shared<Client>(*this); }
+    bool operator==(const Client& b) const;
+    bool operator!=(const Client& b) const;
+    std::shared_ptr<Persoana> cloneaza() const override;
     void afiseaza(std::ostream& out) const override;
-
-    ~Client() {}
 };
 
 #endif
