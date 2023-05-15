@@ -4,8 +4,8 @@ CameraStandard& CameraStandard::operator=(const CameraStandard& b)
 {
     if (this != &b)
     {
+        Camera::operator=(b);
         CameraStandard temp(b);
-        Camera::operator=(temp);
 
         std::swap(this->client, temp.client);
     }
