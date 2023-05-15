@@ -5,10 +5,9 @@ Client& Client::operator=(const Client& b)
     if (this != &b)
     {
         Client temp(b);
+        Persoana::operator=(temp);
 
-        std::swap(this->nume, temp.nume);
-        std::swap(this->prenume, temp.prenume);
-        std::swap(this->numarTelefon, temp.numarTelefon);
+        /// Aici ar veni swap-urile atributelor specifice doar clasei Client.
     }
 
     return *this;

@@ -5,10 +5,7 @@ Angajat& Angajat::operator=(const Angajat& b)
     if (this != &b)
     {
         Angajat temp(b);
-
-        std::swap(this->nume, temp.nume);
-        std::swap(this->prenume, temp.prenume);
-        std::swap(this->numarTelefon, temp.numarTelefon);
+        Persoana::operator=(temp);
 
         std::swap(this->functie, temp.functie);
         std::swap(this->salariu, temp.salariu);

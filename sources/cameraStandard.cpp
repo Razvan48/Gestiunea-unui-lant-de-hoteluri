@@ -5,10 +5,7 @@ CameraStandard& CameraStandard::operator=(const CameraStandard& b)
     if (this != &b)
     {
         CameraStandard temp(b);
-
-        std::swap(this->numar, temp.numar);
-        std::swap(this->etaj, temp.etaj);
-        std::swap(this->rezervat, temp.rezervat);
+        Camera::operator=(temp);
 
         std::swap(this->client, temp.client);
     }

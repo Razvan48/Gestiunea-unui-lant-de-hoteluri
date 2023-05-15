@@ -5,10 +5,7 @@ CameraDubla& CameraDubla::operator=(const CameraDubla& b)
     if (this != &b)
     {
         CameraDubla temp(b);
-
-        std::swap(this->numar, temp.numar);
-        std::swap(this->etaj, temp.etaj);
-        std::swap(this->rezervat, temp.rezervat);
+        Camera::operator=(temp);
 
         std::swap(this->clienti[0], temp.clienti[0]);
         std::swap(this->clienti[1], temp.clienti[1]);
