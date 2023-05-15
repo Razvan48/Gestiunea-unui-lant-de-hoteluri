@@ -4,8 +4,8 @@ Client& Client::operator=(const Client& b)
 {
     if (this != &b)
     {
+        Persoana::operator=(b);
         Client temp(b);
-        Persoana::operator=(temp);
 
         /// Aici ar veni swap-urile atributelor specifice doar clasei Client.
     }

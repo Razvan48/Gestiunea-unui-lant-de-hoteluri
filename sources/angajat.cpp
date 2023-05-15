@@ -4,8 +4,8 @@ Angajat& Angajat::operator=(const Angajat& b)
 {
     if (this != &b)
     {
+        Persoana::operator=(b);
         Angajat temp(b);
-        Persoana::operator=(temp);
 
         std::swap(this->functie, temp.functie);
         std::swap(this->salariu, temp.salariu);
