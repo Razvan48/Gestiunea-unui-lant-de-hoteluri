@@ -6,6 +6,10 @@ Camera& Camera::operator=(const Camera& b)
     {
         /// Camera temp(b); /// Camera este clasa abstracta.
 
+        ///std::swap(this->numar, temp.numar);
+        ///std::swap(this->etaj, temp.etaj);
+        ///std::swap(this->rezervat, temp.rezervat);
+
         this->numar = b.numar;
         this->etaj = b.etaj;
         this->rezervat = b.rezervat;

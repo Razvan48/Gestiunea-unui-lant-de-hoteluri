@@ -6,6 +6,10 @@ Persoana& Persoana::operator=(const Persoana& b)
     {
         /// Persoana temp(b); /// Persoana este clasa abstracta.
 
+        ///std::swap(this->nume, temp.nume);
+        ///std::swap(this->prenume, temp.prenume);
+        ///std::swap(this->numarTelefon, temp.numarTelefon);
+
         this->nume = b.nume;
         this->prenume = b.prenume;
         this->numarTelefon = b.numarTelefon;
