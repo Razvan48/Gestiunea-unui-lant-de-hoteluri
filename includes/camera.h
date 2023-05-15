@@ -33,6 +33,8 @@ public:
 
     Camera(const Camera& b) : numar(b.numar), etaj(b.etaj), rezervat(b.rezervat) {};
 
+    Camera& operator=(const Camera& b);
+
     virtual std::shared_ptr<Camera> cloneaza() const = 0;
     virtual void afiseaza(std::ostream& out) const = 0;
     virtual void descriere(std::ostream& out) const = 0;

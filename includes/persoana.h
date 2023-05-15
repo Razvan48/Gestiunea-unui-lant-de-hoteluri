@@ -28,6 +28,7 @@ public:
 
     Persoana(const Persoana& b) : nume(b.nume), prenume(b.prenume), numarTelefon(b.numarTelefon) {}
 
+    Persoana& operator=(const Persoana& b);
     friend std::istream& operator>>(std::istream& in, Persoana& p);
     friend std::ostream& operator<<(std::ostream& out, const Persoana& p);
 
