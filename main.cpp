@@ -178,23 +178,8 @@ int main()
     }
      */
 
-    try
-    {
-        h[1].elibereazaCamera<CameraStandard>();
-    }
-    catch (const eroareTipCameraNegasit& e)
-    {
-        std::cout << e.what() << '\n';
-    }
-
-    try
-    {
-        h[0].elibereazaCamera<CameraDubla>();
-    }
-    catch (const eroareTipCameraNegasit& e)
-    {
-        std::cout << e.what() << '\n';
-    }
+    h[1].elibereazaCamera<CameraStandard>();
+    h[0].elibereazaCamera<CameraDubla>();
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();

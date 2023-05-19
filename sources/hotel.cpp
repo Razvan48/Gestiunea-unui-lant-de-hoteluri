@@ -223,8 +223,8 @@ template<typename T> void Hotel::elibereazaCamera()
         }
     }
 
-    if (!existaTipCamera)
-        throw eroareTipCameraNegasit("tipul de camera ce trebuia eliberat in cadrul unui hotel nu a fost gasit");
+    //if (!existaTipCamera)
+    //    throw eroareTipCameraNegasit("tipul de camera ce trebuia eliberat in cadrul unui hotel nu a fost gasit");
 }
 
 template void Hotel::elibereazaCamera<CameraStandard>();
@@ -257,5 +257,5 @@ void Hotel::concediaza(const Angajat& a)
         }
     }
 
-    // throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
+    //throw eroareAngajatNegasit("angajatul ce trebuia concediat din cadrul unui hotel nu a fost gasit");
 }
