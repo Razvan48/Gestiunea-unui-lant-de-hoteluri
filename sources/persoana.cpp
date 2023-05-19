@@ -15,7 +15,7 @@ Persoana& Persoana::operator=(const Persoana& b)
 {
     if (this != &b)
     {
-        /// Persoana temp(b); /// Persoana este clasa abstracta.
+        ///Persoana temp(b); /// Persoana este clasa abstracta.
 
         ///std::swap(this->nume, temp.nume);
         ///std::swap(this->prenume, temp.prenume);

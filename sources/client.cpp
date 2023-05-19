@@ -18,7 +18,7 @@ Client& Client::operator=(const Client& b)
         Persoana::operator=(b);
 
         ///Client temp(b);
-        /// Aici ar veni swap-urile atributelor specifice doar clasei Client.
+        ///Aici ar veni swap-urile atributelor specifice doar clasei Client.
     }
 
     return *this;

@@ -11,6 +11,8 @@
 
 #include "includes/lantDeHoteluri.h"
 
+#include "includes/exceptie.h"
+
 int main()
 {
 
@@ -175,6 +177,24 @@ int main()
         std::cout << e.what() << '\n';
     }
      */
+
+    try
+    {
+        h[1].elibereazaCamera<CameraStandard>();
+    }
+    catch (const eroareTipCameraNegasit& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+
+    try
+    {
+        h[0].elibereazaCamera<CameraDubla>();
+    }
+    catch (const eroareTipCameraNegasit& e)
+    {
+        std::cout << e.what() << '\n';
+    }
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();

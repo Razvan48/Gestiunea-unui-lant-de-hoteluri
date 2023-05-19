@@ -131,4 +131,11 @@ public:
     eroareLantDeHoteluri("hotel negasit: " + mesaj) {};
 };
 
+class eroareTipCameraNegasit : public eroareHotel
+{
+public:
+    explicit eroareTipCameraNegasit(const std::string& mesaj) :
+            eroareHotel("tip camera negasit: " + mesaj) {};
+};
+
 #endif

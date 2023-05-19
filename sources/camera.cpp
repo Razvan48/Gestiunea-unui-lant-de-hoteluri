@@ -14,7 +14,7 @@ Camera& Camera::operator=(const Camera& b)
 {
     if (this != &b)
     {
-        /// Camera temp(b); /// Camera este clasa abstracta.
+        ///Camera temp(b); /// Camera este clasa abstracta.
 
         ///std::swap(this->numar, temp.numar);
         ///std::swap(this->etaj, temp.etaj);

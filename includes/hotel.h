@@ -51,6 +51,7 @@ public:
     void eliminaCamera(Camera& c);
     void rezervaCamera(const std::vector<Client>& c);
     void elibereazaCamera(int numar, int etaj);
+    template<typename T> void elibereazaCamera(); ///Elibereaza prima camera rezervata de tipul T gasita in lista de camere.
     void angajeaza(const Angajat& a);
     void concediaza(const Angajat& a);
 };
