@@ -206,13 +206,13 @@ void Hotel::elibereazaCamera(int numar, int etaj)
 
 template<typename T> void Hotel::elibereazaCamera()
 {
-    bool existaTipCamera = false;
+    //bool existaTipCamera = false;
 
     for (size_t i = 0; i < this->camere.size(); ++i)
     {
         if (dynamic_cast<T*>(this->camere[i].get()))
         {
-            existaTipCamera = true;
+            //existaTipCamera = true;
 
             if (this->camere[i]->getRezervat())
             {

@@ -179,6 +179,9 @@ int main()
      */
 
     h[1].elibereazaCamera<CameraStandard>();
+    h[1].elibereazaCamera<CameraDubla>();
+
+    h[0].elibereazaCamera<CameraStandard>();
     h[0].elibereazaCamera<CameraDubla>();
 
     std::cout << "Press any key to continue." << '\n';
