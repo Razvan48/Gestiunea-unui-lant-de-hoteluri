@@ -26,9 +26,6 @@ template<typename T> void Hotel::elibereazaCamera()
     //    throw eroareTipCameraNegasit("tipul de camera ce trebuia eliberat in cadrul unui hotel nu a fost gasit");
 }
 
-template void Hotel::elibereazaCamera<CameraStandard>();
-template void Hotel::elibereazaCamera<CameraDubla>();
-
 template<typename T> void Hotel::elibereazaToateCamerele()
 {
     //bool existaTipCamera = false;
