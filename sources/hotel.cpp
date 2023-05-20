@@ -114,6 +114,8 @@ void Hotel::adaugaCamera(Camera& c)
 
     if (!cameraDejaExistenta)
     {
+        ///Nu voi adauga un nou if pentru fiecare tip nou de camera gasit (presupun ca ma intereseaza
+        ///sa pot accesa rapid doar cate camere standard si duble exista in hotel, chiar daca exista si alte tipuri).
         CameraStandard* cs = dynamic_cast<CameraStandard*>(&c);
         if (cs)
         {
@@ -121,7 +123,7 @@ void Hotel::adaugaCamera(Camera& c)
             this->capacitate += cs->getCapacitate();
         }
         CameraDubla* cd = dynamic_cast<CameraDubla*>(&c);
-        if (dynamic_cast<CameraDubla *>(cd))
+        if (cd)
         {
             ++this->numarCamereDuble;
             this->capacitate += cd->getCapacitate();
@@ -139,6 +141,8 @@ void Hotel::eliminaCamera(Camera& c)
     {
         if (this->camere[i]->getNumar() == c.getNumar() && this->camere[i]->getEtaj() == c.getEtaj())
         {
+            ///Nu voi adauga un nou if pentru fiecare tip nou de camera gasit (presupun ca ma intereseaza
+            ///sa pot accesa rapid doar cate camere standard si duble exista in hotel, chiar daca exista si alte tipuri).
             CameraStandard* cs = dynamic_cast<CameraStandard*>(&c);
             if (cs)
             {
@@ -146,7 +150,7 @@ void Hotel::eliminaCamera(Camera& c)
                 this->capacitate -= cs->getCapacitate();
             }
             CameraDubla* cd = dynamic_cast<CameraDubla*>(&c);
-            if (dynamic_cast<CameraDubla*>(cd))
+            if (cd)
             {
                 --this->numarCamereDuble;
                 this->capacitate -= cd->getCapacitate();
