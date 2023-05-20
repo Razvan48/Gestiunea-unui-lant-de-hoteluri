@@ -6,6 +6,7 @@
 
 #include "includes/cameraStandard.h"
 #include "includes/cameraDubla.h"
+#include "includes/cameraTripla.h"
 
 #include "includes/hotel.h"
 
@@ -202,6 +203,16 @@ int main()
     Client clientRezultat = client.build();
 
     clientRezultat.afiseaza(out);
+
+    CameraTripla ct(11, 2);
+    std::cout << ct << '\n';
+    ct.afiseaza(out);
+    ct.descriere(out);
+
+    h[1].adaugaCamera(ct);
+    h[1].elibereazaCamera(ct.getNumar(), ct.getEtaj());
+    in >> ct;
+    std::cout << ct << '\n';
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();

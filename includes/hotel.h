@@ -16,6 +16,7 @@
 #include "camera.h"
 #include "cameraStandard.h"
 #include "cameraDubla.h"
+#include "cameraTripla.h"
 
 #include "exceptie.h"
 

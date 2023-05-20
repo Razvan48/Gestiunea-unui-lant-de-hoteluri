@@ -23,5 +23,6 @@ Persoana 4 07...3
 Persoana 5 07...4
 Persoana 6 07...5
 Persoana 7 07...6
+2 3
 
 
