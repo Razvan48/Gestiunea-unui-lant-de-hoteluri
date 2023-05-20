@@ -3,12 +3,16 @@
 
 #include "persoana.h"
 
+#include "builderPersoana.h"
+
 class Angajat : public Persoana
 {
 private:
 
     std::string functie;
     int salariu;
+
+    friend class builderPersoana<Angajat>;
 
 public:
 

@@ -3,9 +3,13 @@
 
 #include "persoana.h"
 
+#include "builderPersoana.h"
+
 class Client : public Persoana
 {
 private:
+
+    friend class builderPersoana<Client>;
 
 public:
 

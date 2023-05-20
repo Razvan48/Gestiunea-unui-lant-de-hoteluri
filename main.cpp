@@ -187,6 +187,18 @@ int main()
     h[0].elibereazaToateCamerele<CameraStandard>();
     h[1].elibereazaToateCamerele<CameraDubla>();
 
+    builderPersoana<Angajat> angajat;
+    angajat.numarTelefon("0123");
+    angajat.nume("Ionescu");
+    angajat.prenume("Popescu");
+    Angajat angajatRezultat = angajat.build();
+
+    builderPersoana<Client> client;
+    client.numarTelefon("0123");
+    client.nume("Ionescu");
+    client.prenume("Popescu");
+    Client clientRezultat = client.build();
+
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
 
