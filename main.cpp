@@ -34,11 +34,6 @@ int main()
     cs[0].descriere(out);
     cd[0].descriere(out);
 
-    h[0].elibereazaCamera<CameraStandard>();
-    h[0].elibereazaCamera<CameraDubla>();
-    h[1].elibereazaCamera<CameraStandard>();
-    h[1].elibereazaCamera<CameraDubla>();
-
     for (int i = 0; i < 10; ++i)
     {
         in >> cs[i];
@@ -188,6 +183,9 @@ int main()
 
     h[0].elibereazaCamera<CameraStandard>();
     h[0].elibereazaCamera<CameraDubla>();
+
+    h[0].elibereazaToateCamerele<CameraStandard>();
+    h[1].elibereazaToateCamerele<CameraDubla>();
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
