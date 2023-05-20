@@ -193,11 +193,15 @@ int main()
     angajat.prenume("Popescu");
     Angajat angajatRezultat = angajat.build();
 
+    angajatRezultat.afiseaza(out);
+
     builderPersoana<Client> client;
     client.numarTelefon("0123");
     client.nume("Ionescu");
     client.prenume("Popescu");
     Client clientRezultat = client.build();
+
+    clientRezultat.afiseaza(out);
 
     std::cout << "Press any key to continue." << '\n';
     std::cin.get();
