@@ -1,4 +1,7 @@
-#include "../includes/hotel.h"
+#ifndef SABLOANEHOTEL_H
+#define SABLOANEHOTEL_H
+
+#include "hotel.h"
 
 template<typename T> void Hotel::elibereazaCamera()
 {
@@ -25,3 +28,5 @@ template<typename T> void Hotel::elibereazaCamera()
 
 template void Hotel::elibereazaCamera<CameraStandard>();
 template void Hotel::elibereazaCamera<CameraDubla>();
+
+#endif

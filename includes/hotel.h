@@ -56,4 +56,6 @@ public:
     void concediaza(const Angajat& a);
 };
 
+#include "sabloaneHotel.h"
+
 #endif
